@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'test';
+    src: URL("FGMRfont.ttf") format('truetype') local();
+}
+
+#bsTable {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse:collapse;
+}
+
+#bsTable th{
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+
+td {
+    border-left: 1px solid black;
+    padding: 5px;
+}
+
+#topBar{
+    text-align: center;
+}
+
+#bsBar {
+    font-size: 20px;
+    font-family: "test";
+    color: white;
+    width: 65%;
+    padding: 0rem;
+    padding-left: 10%;
+    height: 70px;
+    background-size: 100% 70px;
+    background-repeat: no-repeat;
+    background-image: url("bar.jpg");
+    border: 2px solid red;
+}
+
+#generate {
+    font-size: 20px;
+    padding: 12px;
+    color: #fff;
+    background-color: lawngreen;
+    border: 2px solid green;
+    cursor: pointer;
+    width: max-content;
+    transition: 0.25s ease;
+}
+
+#generate:hover {
+    box-shadow: 0 6px 18px 0 rgba(#000, 0.1);
+    color: lawngreen;
+    border-color: transparent;
+    background-color: transparent;
+}

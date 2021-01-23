@@ -1,0 +1,12 @@
+.found {
+    background-color: yellow;
+    width: fit-content;
+}
+
+.notFound {
+    color: lightgrey;
+}
+
+ul {
+    width: 20%;
+}
