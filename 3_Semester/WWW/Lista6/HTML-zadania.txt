@@ -1,0 +1,78 @@
+1) 
+nslookup i potem interaktywnie
+set type=MX - mail
+set type=A+AAAA - IPv4 + IPv6(colon separated)
+
+156.17.4.11 - ii.uni.wroc.pl
+GOOGLEMAIL.COM
+
+149.156.169.67 - www.uj.edu.pl
+mailin1a.srv.uj.edu.pl
+
+2)
+WIN + R -> uruchom
+C:\Windows\System32\drivers\etc\hosts
+%SystemRoot%\system32\drivers\etc\hosts
+
+pierwsza-zmiana DNS: strona w przygotowaniu
+druga: 400 - Bad Request
+trzecia: działa
+
+Wytłumacznie co się stało?				TODO
+
+3)
+Proto  Local Address          Foreign Address        State
+netstat -n | grep "79.96.11.200"
+
+https://tools.keycdn.com/geo
+79.96.11.200
+
+- port 80 - HTTP
+443 - HTTPS (HTTP SSL)
+79.96.11.200:80
+
+79.96.11.200 - itcourses.eu
+Polska
+
+20.50.2.7 - mój serwer
+Amsterdam
+
+finished - empty
+real    1m15,076s
+user    0m1,581s
+sys     0m5,071s
+
+4)
+Waterfall - schodki vs skoki - time till first byte
+Protokół HTTP jest protokołem bezstanowym. Oznacza to, że serwer WWW rozpatruje każde żądanie niezależnie od innych, nie szukając żadnych powiązań w stylu wysyłania ich przez tego samego internautę.
+pamiętaj o capture image i cache clear
+ładuje najpierw DOM potem obrazki
+
+5)
+headers
+Accept-Language de fr pl
+Preview
+pl;q=0.3, fr;q=0.6, de;q=0.8 - priorytety
+
+6)
+body form-data
+tak samo działa
+
+7)
+body -> form-data -> file
+Content-Type: multipart/form-data; boundary="anothercooloundary"
+https://kurswww43.azurewebsites.net/zad7/form-post.php
+
+8)
+Rules->Auotmatic Breakpoints -> before requests
+https://kurswww43.azurewebsites.net/zad8?test=value
+
+IE->Opcje Internetowe-> Połączenia -> Ustawienia sieci LAN -> proxy
+9)
+Rules->ignore images
+connection -> run to completion
+Get -> Break on response
+content-type -> edit header -> image_png -> text/html
+xml: https://www.w3schools.com/xml/note.xml
+json: https://tools.learningcontainer.com/sample-json.json
+png: https://upload.wikimedia.org/wikipedia/commons/f/f0/Raster_graphic_fish_20x23squares_sdtv-example.png
