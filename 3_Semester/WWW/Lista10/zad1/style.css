@@ -1,0 +1,26 @@
+#mainForm *{
+    display: flex;
+    margin: 0.2rem 0.4rem;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+}
+
+#mainForm label{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#mainForm input{
+    border-width: 0.2rem;
+    border-style: solid; 
+}
+
+#mainForm label .error-msg{
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+body {
+    background-color: lightblue;
+}

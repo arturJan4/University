@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery AJAX</title>
+<script src="js/jquery-1.6.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$( document ).ajaxError(function( event, request, settings ) {
+  $( "#msg" ).append( "<li>Error requesting page " + settings.url + "</li>" );
+});
+
+$(document).ready(function() {
+   $("#nocors").click(function() {
+		var ajaxRequest = $.ajax({
+			url: "http://spacerownik.wroclawski.eu/cors/time.php",
+			success: function(data){
+				$("#currenttime").html(data);
+			},
+			error: function(xhr, errorText, errorThrown)
+			{
+				$("#currenttime").html(errorText);
+			}
+		});
+	});
+   $("#cors").click(function() {
+		$.ajax({
+			url: "http://spacerownik.wroclawski.eu/cors/time-cors.php",
+			success: function(data) {
+				$("#currenttime").html(data);
+			}
+		});
+	});
+});
+</script>
+</head>
+
+<body>
+
+<h2>SOP & CORS</h2>
+
+<form name="TheForm1">
+<input type="button" id="cors" value="CORS"/>
+<input type="button" id="nocors" value="Without CORS"/>
+</form>
+
+<div id="currenttime"></div>
+
+<ul id="msg">
+</ul>
+
+</body>
+</html>

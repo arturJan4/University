@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery AJAX</title>
+<script src="js/jquery-1.6.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+   $("#jsonp1").click(function() {
+		$.ajax({
+			type: "GET",
+			url: "http://spacerownik.wroclawski.eu/jsonp/time-jsonp-nojson.php",
+			dataType: "jsonp",
+			jsonpCallback: 'functionCall',
+			success: function(data){
+				$("#currenttime").html(data);
+			}
+		});
+	});
+   $("#jsonp2").click(function() {
+		$.getJSON( "http://spacerownik.wroclawski.eu/jsonp/time-jsonp.php?callback=?", function( data ){
+			$("#currenttime").html(data.time);
+		});
+	});
+});
+</script>
+</head>
+
+<body>
+
+<h2>SOP & JSONP</h2>
+
+<form name="TheForm1">
+<input type="button" id="jsonp1" value="JSONP v. 1"/>
+<input type="button" id="jsonp2" value="JSONP v. 2"/>
+</form>
+
+<div id="currenttime"></div>
+
+</body>
+</html>

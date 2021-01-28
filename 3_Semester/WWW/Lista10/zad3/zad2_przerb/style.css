@@ -1,0 +1,49 @@
+body {
+    margin: 1rem;
+    padding: 0;
+}
+
+#autocomp {
+    width: 20rem;
+    padding: 0;
+    margin: 0;   
+}
+
+#movieName {
+    width: 100%;
+}
+
+.auto-container {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 0;
+    margin: 0;    
+    border: 1px solid gray;
+}
+
+.hidden {
+    display: none;
+}
+
+.item-ac {
+    width: 100%;
+    height: auto;
+    left: 0;
+    right: 0;
+    padding: 0;
+    margin: 0; 
+    cursor: pointer;
+
+    color: black;
+}
+
+.item-ac:hover {
+    background-color: #3297FD !important;
+    color: white;
+}
+
+.item-ac.active {
+    background-color: rgb(7, 96, 185);
+    color:white;
+}
