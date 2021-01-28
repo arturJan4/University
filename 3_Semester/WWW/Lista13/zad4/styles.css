@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 18vw;
+    object-fit: contain;
+}
+
+.navbar .navbar-brand {
+    padding-top: 0px;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.navbar-collapse {
+    background-color: #6c757d;
+}
+
+.background-scrolled {
+    background-color: #42464b !important;
+}
+
+.bg-secondary.scrolled {
+    background: #42464b !important;
+    opacity: 0.85 !important;
+    height: 9vh;
+    padding-top: 3vh;
+}
+
+.navbar-large
+{
+	height: 15vh;
+}
+
+.carousel-indicators .active{
+    background-color: green;
+}
+
+.carousel-indicators li{
+    background-color: #f00;
+}
+
+.carousel-item {
+   /* background-color: grey;*/
+}
+
+.carousel-item img {
+    object-fit: scale-down;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='green' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='green' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 3rem;
+  width: 3rem;
+}
+
+.carousel-caption{
+    text-align: center;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}

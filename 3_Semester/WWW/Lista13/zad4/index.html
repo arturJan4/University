@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bs5/css/bootstrap.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- JQUERY UI  -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        crossorigin="anonymous"></script>
+    <title>Shop</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100" data-spy="scroll" data-target="#navbar-scrollspy" data-offset="60">
+    <nav id="navbar-scrollspy" class="navbar sticky-top navbar-expand-lg navbar-large navbar-dark bg-secondary m-0">
+        <!--Logo and title-->
+        <a class="navbar-brand" href="#">
+          Best Shop          
+        </a>
+        <!--Menu options-->
+            <!--collapse for mobile-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                <li class="nav-item active h-100">
+                  <a class="nav-link" href="#">Strona główna <span class="sr-only">(obecna)</span></a>
+                </li>
+              <li class="nav-item dropdown h-100">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                  Kategorie
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><hr class="dropdown-divider">Elektronika</li>
+                  <li><a class="dropdown-item" href="#">Komputery</a></li>
+                  <li><a class="dropdown-item" href="#">Telewizory</a></li>
+                  <li><a class="dropdown-item" href="#">Laptopy</a></li>
+                  <li><hr class="dropdown-divider">Akcesoria</li>
+                  <li><a class="dropdown-item" href="#">Kable/Przejściówki</a></li>
+                  <li><a class="dropdown-item" href="#">Myszki</a></li>
+                  <li><a class="dropdown-item" href="#">Klawiatury</a></li>
+                </ul>
+              </li>
+              <li class="nav-item h-100">
+                <a class="nav-link" href="#">Mapa</a>
+              </li>
+              <li class="nav-item h-100">
+                <a class="nav-link" href="#footer">Kontakt</a>
+              </li>
+              <li class="nav-item h-100">
+                <a class="nav-link" href="#news">Aktualności</a>
+              </li>
+              <li class="nav-item h-100">
+                <a class="nav-link" href="#test">Scrollspy</a>
+              </li>
+            </ul>
+
+            <div id="shopping-cart" class="ml-auto mr-2">
+                0.00zł
+                <a href="#"><img src="src/shopping_cart.png" alt="" width="35" height="35" class="d-inline"></a>
+            </div>
+
+            <form class="d-flex">
+                <input class="form-control mr-2" type="search" placeholder="Szukaj" aria-label="Search">
+                <button class="btn btn-success" type="submit">Szukaj</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="row pb-5 m-0">
+      <h2 class="display-4 text-center">Polecane</h2>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="src/mouse.png" height="500" alt="First slide">
+            <p class="mb-5"></p>
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Logitech G Pro</h3>
+              <p><h5>Jaka mysz jest każdy widzi.</h5></p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="src/tv.jpg" height="500" alt="Second slide">
+            <p class="mb-5"></p>
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Samsung UN65NU6900FXZA 65"</h3>
+              <p><h5>PurColor, UHD Engine, 2160p Ultra HD, SmartTV</h5></p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="src/headphones.jpg" height="500" alt="Third slide">
+            <p class="mb-5"></p>
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Słuchawki Sennheiser HD 25</h3>
+              <p><h5>Nominalna impedancja wynosząca 70 Ω.</h5></p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+  </div>
+
+    <div class="container-fluid m-0">
+        <div class="row p-2 gx-5">
+            <div class="col-md-4">
+                <h2 class="display-4 text-center">Aktualności</h2>
+                <div id="news" class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">News 1</h5>
+                        <small>1 dzień temu</small>
+                      </div>
+                      <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, quam. Officiis corporis, dolore magni blanditiis quae et a sit eveniet deserunt non omnis, at nam obcaecati dolorem esse ipsum error?</p>
+                      <small>Donec id elit non mi porta.</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">News 2</h5>
+                        <small class="text-muted">3 dni temu</small>
+                      </div>
+                      <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, quam. Officiis corporis, dolore magni blanditiis quae et a sit eveniet deserunt non omnis, at nam obcaecati dolorem esse ipsum error?</p>
+                      <small class="text-muted">Donec id elit non mi porta.</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">News 3</h5>
+                        <small class="text-muted">5 dni temu</small>
+                      </div>
+                      <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, quam. Officiis corporis, dolore magni blanditiis quae et a sit eveniet deserunt non omnis, at nam obcaecati dolorem esse ipsum error?</p>
+                      <small class="text-muted">Donec id elit non mi porta.</small>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h2 class="display-4 text-center">Ostatnio przeglądane</h2>
+                <div class="card-group my-3">
+
+                    <div class="card">
+                      <img src="src/laptop.jpg" class="card-img-top" alt="...">
+                      <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">HP Omen 17.3" 4K UHD Gaming Laptop</h5>
+                        <p class="card-text">Intel i7, 2TB HDD + 256GB SSD, 17.3 inch UHD 3840 x 2160, 32GB RAM, GeForce GTX 1060</p>
+                        <p class="card-text mt-auto align-self-center"><small class="text-muted">Cena: 7000zł</small>
+                        <button type="button" class="btn btn-primary ml-2">Kup</button>
+                        </p>
+                    </div>
+                    </div>
+
+                    <div class="card">
+                      <img src="src/tv.jpg" class="card-img-top" alt="...">
+                      <div class="card-body d-flex flex-column h-100">
+                        <h5 class="card-title">Samsung UN65NU6900FXZA 65"</h5>
+                        <p class="card-text">PurColor, UHD Engine, 2160p Ultra HD, SmartTV </p>
+                        <p class="card-text mt-auto align-self-center"><small class="text-muted">Cena: 2500zł</small>
+                            <button type="button" class="btn btn-primary ml-2">Kup</button>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="card">
+                      <img src="src/usb.jpg" class="card-img-top" alt="...">
+                      <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Micro USB to USB</h5>
+                        <p class="card-text">To jest po prostu przejściówka, ale piszę dłuższy tekst żeby zobaczyć co się stanie. Czy się będzie dobrze zawijać i overflowować na przykład przy zmniejszaniu/powiększaniu ekranu</p>
+                        <p class="card-text mt-auto align-self-center"><small class="text-muted">Cena: 10zł</small>
+                        <button type="button" class="btn btn-primary ml-2">Kup</button>
+                        </p>
+                      </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="test" class="row pb-5 pt-5 gx-5 m-0">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse ab eligendi doloribus quibusdam vero excepturi facilis, consequuntur aliquid perspiciatis commodi saepe impedit ea unde at. Itaque iste sequi voluptatem in.
+      Vero culpa ea ab voluptates quae, harum corrupti sint. Ad quaerat doloremque molestiae. Voluptatem repellat corrupti dolores officiis amet, ut ea enim possimus, temporibus, iure esse placeat? Architecto, consectetur quas!
+      Accusantium rem iusto quisquam reprehenderit, tempora iure rerum assumenda odio dolorum impedit quia, expedita, voluptate corporis ut eligendi facere quod. Id nemo impedit et ipsa inventore voluptatem voluptatibus amet quam.
+      Ratione harum a consequatur. Tempora nemo nisi tempore ut architecto. At illum provident perferendis nostrum, quas repudiandae aliquid quibusdam labore nisi cupiditate aspernatur quaerat sed distinctio voluptate tempora nesciunt deleniti.
+      Doloribus voluptatibus magni earum quod officia reprehenderit ipsa quidem veritatis doloremque, nemo expedita dolore sint sequi in? Reprehenderit maiores adipisci similique, commodi distinctio ipsam quia facere non accusantium quo tenetur.
+      Dicta voluptates ullam earum, eum repudiandae nostrum, dolorem tempore tenetur quo obcaecati cum, rem dignissimos praesentium ex voluptatibus deserunt? Iste minima vero, quisquam porro provident aut fugiat nam voluptatibus. Inventore.
+      Consequatur quibusdam mollitia fugit, recusandae in error nostrum necessitatibus veritatis aut maxime voluptas ab ducimus quidem, odio voluptatum modi dicta facilis eius quae facere culpa reprehenderit. Nesciunt dicta expedita molestiae.
+      Sequi praesentium mollitia labore recusandae, odio nostrum culpa quas rem, velit temporibus voluptatibus eius, laborum asperiores? Nulla enim adipisci dicta repellat aliquid velit, atque nostrum quia perferendis. Rem, dolorum maiores!
+      Est iusto at aliquid et facilis, dolore quia tenetur pariatur rem nostrum numquam quis, aperiam neque exercitationem dolores architecto? Illo cupiditate accusamus officiis nesciunt asperiores dicta a repellendus ab alias!
+      Ut maxime quae ipsam nulla! Sapiente, inventore illo. Et perferendis quasi enim facere nesciunt ex repudiandae, vero aut quae minus eligendi ad aperiam culpa consequuntur consequatur adipisci laboriosam reiciendis aspernatur!
+      Voluptate nobis totam ad fugit exercitationem adipisci optio dicta eveniet delectus temporibus ea natus, dignissimos sequi! Assumenda libero cupiditate cum tempora voluptatem! Vero quod ducimus eligendi necessitatibus voluptates reiciendis numquam?
+      Doloremque quaerat dolores nobis optio saepe temporibus beatae, magni nostrum veritatis eligendi debitis aperiam. Doloremque sunt ad, modi vel unde ab enim repellendus dolor. Exercitationem voluptatem porro eveniet illum odit.
+      Error officiis neque maxime veritatis, repellendus quidem amet distinctio aspernatur necessitatibus sint soluta porro rem nobis saepe veniam facilis cupiditate, iure accusantium tempore, eum consequuntur laborum eveniet. Odio, cupiditate libero!
+      Iste reprehenderit quos, quidem nesciunt pariatur minima eos sequi. Quibusdam delectus officiis molestias autem explicabo nostrum perspiciatis pariatur, corrupti accusantium veritatis nobis ullam numquam eos quae corporis nisi saepe. Saepe?
+      Est, praesentium quos quod tenetur at possimus earum, a, culpa odio maxime laboriosam sapiente perspiciatis explicabo delectus dolore dolor qui ex dicta tempore? Iste pariatur deserunt minima quod hic perferendis.
+      Id voluptas vel, placeat, quia cumque dolores itaque reiciendis praesentium sint obcaecati accusamus nesciunt. Nihil iste voluptatum perferendis commodi, quisquam dolor fugit? Laudantium quam impedit quis. Consequuntur dolorum consectetur minima!
+      Quasi sed facere ullam eaque. Impedit dolore illo incidunt earum officiis quod, sequi, veritatis natus ut voluptates placeat quidem? Explicabo, commodi soluta sint ut nihil aut vitae ipsum porro nemo.
+      Quasi, quam ullam beatae adipisci veritatis quae quia unde optio nesciunt ab? Soluta distinctio ab iusto, labore ut sunt quaerat maiores numquam blanditiis vero, incidunt molestias fugiat placeat id necessitatibus?
+      Dolore facere, iste omnis perferendis tempora ex doloribus veniam illo commodi hic minus fuga a nemo optio vitae possimus at iure dolor ipsum, non sint consequatur eligendi totam? Vero, deleniti.
+      Consectetur culpa ducimus assumenda voluptatem fuga, similique aspernatur nemo quas, sint vero officiis odio quasi perferendis, asperiores expedita? Quis quam repellendus distinctio! Inventore alias pariatur delectus sint modi provident quos?
+      Voluptatem, culpa! Obcaecati debitis nemo tempora quibusdam similique unde, illum asperiores? Atque cupiditate repellendus dolorum praesentium rem maxime. Dolor adipisci impedit neque magnam amet numquam ea provident, quia aliquid facere!
+      Et enim ipsam odit eos est quod atque inventore culpa cumque quasi. Explicabo placeat praesentium est suscipit quas natus possimus optio, repellat id accusantium dolores magnam libero. Quia, tenetur aliquam.
+      Assumenda rerum cum cupiditate atque vero commodi, quaerat voluptate accusantium doloremque possimus placeat voluptatibus fuga sit quos dignissimos dolorem, labore consequatur eum excepturi sequi voluptas reiciendis, magnam hic odit? Ab?
+      Provident facilis deleniti qui totam quam, eaque assumenda exercitationem. Omnis, cum pariatur nemo quia ducimus amet architecto et officiis, quod earum corrupti assumenda perspiciatis id sint quibusdam, itaque harum? Beatae!
+      Quibusdam, a, omnis corporis officiis nostrum facere excepturi sequi eum asperiores voluptas neque eveniet mollitia possimus consectetur, nemo placeat voluptatem. Temporibus ut voluptas exercitationem saepe enim! Sequi sapiente totam voluptate.
+      Quaerat, mollitia, reiciendis quia eaque iusto at soluta blanditiis doloribus architecto rerum adipisci quisquam tenetur fuga deserunt dolorum! Facere cupiditate eveniet ipsum porro nostrum earum repellendus explicabo. Possimus, dolore at.
+      Quae explicabo aperiam laudantium id accusamus cupiditate ipsum, ex temporibus nemo modi nobis sequi culpa aut unde molestias aspernatur, facere atque neque illo debitis minima esse sint sunt? Numquam, labore!
+      Tenetur, dicta laborum esse deserunt nemo quo, provident temporibus et voluptatem ad, minus autem sed! Alias, aspernatur. Doloribus labore amet ullam quod architecto. Amet deleniti aliquam expedita voluptatum sunt corrupti!
+      Laboriosam animi laudantium nesciunt, dolorum debitis quia quae sequi perferendis? Suscipit provident labore ut quod eos ex nam ad, inventore pariatur corporis debitis ipsum in cupiditate architecto fugiat eveniet voluptates!
+      A eius eveniet, quod at magni qui blanditiis repellendus delectus praesentium adipisci, quidem perspiciatis quae ea incidunt quisquam id temporibus voluptate voluptas obcaecati repudiandae. Unde, vel autem! Quod, ullam quasi!
+      Aspernatur, nemo. Laborum consequatur accusantium autem nisi. Dolores esse porro repellat, vitae deserunt reiciendis praesentium. Hic iste exercitationem ut, odit ducimus nihil voluptas cum enim quia. Perferendis eius deserunt provident?
+      Tempore aspernatur minus perspiciatis nostrum aliquam provident fuga tempora laudantium quisquam fugiat. Omnis iusto vitae accusantium aut molestias, inventore, libero, nihil facilis dolorem quisquam distinctio optio consequuntur quod ea voluptates.
+      Quaerat culpa quos rem asperiores eum cum reiciendis, ullam labore velit perferendis veritatis repellat ipsum delectus tempora in officia nemo porro ex harum nam adipisci est nulla quidem! Veritatis, voluptas!
+      Tenetur, voluptatem adipisci nesciunt, voluptatibus quod minus, excepturi doloremque pariatur ipsa fugit magni laboriosam neque eveniet sapiente. Expedita et incidunt natus nulla officia, repellat reprehenderit veritatis facere? Id, possimus dolore?
+      A omnis voluptatum atque illo quaerat voluptate similique unde id, culpa dolorem natus quod dolorum, molestias sit amet eius in enim? Iusto iste reiciendis cumque fuga et laborum dolorum inventore!
+      Sint laboriosam possimus quia dolorem temporibus enim reprehenderit saepe? Consequuntur voluptate cupiditate velit facere tempore provident suscipit praesentium ex doloribus ipsa atque odio, iusto quam eius vitae? Accusantium, doloremque quo.
+      Vitae voluptatem ab ipsum rem quam dolores distinctio molestias, repellat rerum, eaque dignissimos sed beatae tenetur, doloribus laborum aliquam soluta quibusdam perferendis. Enim totam blanditiis voluptatibus, nostrum minima saepe dolorum?
+      Placeat, perferendis cumque vero nemo quis alias fugit praesentium ipsam quas quo eos officiis tempore laborum impedit id nostrum architecto ab minima est eligendi sit. Iusto quos ex sed. Necessitatibus?
+      Sed corrupti excepturi fugit impedit facere, magnam ducimus adipisci aliquam deserunt molestias libero tempore, quod deleniti consequuntur sunt doloremque molestiae dolorem. Autem, ipsum in iusto eligendi voluptatibus est nam molestiae?
+      Illo facere nesciunt vitae, velit quis fugiat magnam rerum placeat itaque nemo magni veniam quo, dolor laudantium eligendi quos hic, recusandae similique minus veritatis. Quo accusamus tenetur in nam fugiat.
+      Velit nihil beatae eos incidunt, aliquid rem libero voluptate ipsum quaerat reprehenderit? Eius explicabo minima, eum earum cum iusto dignissimos minus magni animi dicta optio aperiam blanditiis id dolorem laudantium.
+      Iure dolorum eos laborum cumque minima sequi reprehenderit ipsum. In nemo tempore enim, omnis numquam, at laboriosam tenetur veritatis corporis blanditiis reprehenderit cum maxime cupiditate rem cumque, non quae commodi?
+      Suscipit officiis dolorum a cumque ipsum corporis quidem reprehenderit commodi voluptate ad, cupiditate reiciendis obcaecati quia consequuntur laboriosam. Iusto debitis reiciendis id optio, eaque dicta beatae nihil quaerat excepturi reprehenderit?
+      Aut, pariatur perspiciatis, esse velit voluptatem impedit eos reiciendis, culpa quia illum ducimus vitae! Alias beatae obcaecati eveniet, nihil numquam culpa placeat vero. Optio, recusandae. Nam sequi sunt ipsa hic?
+      Doloribus vel sapiente repudiandae quod, exercitationem dolor reprehenderit eos autem atque molestiae architecto ex cumque, officia commodi voluptates quo quam ipsum fugit asperiores. Hic unde repellat numquam repellendus velit ut.
+      Id corrupti blanditiis impedit explicabo earum! Consequuntur accusamus non veniam fugit provident distinctio inventore sapiente neque quo, aut alias reprehenderit. Commodi, eius totam rerum sunt laboriosam quod ut quae repudiandae!
+      Explicabo officiis, possimus quos quasi impedit dolor assumenda numquam maxime sunt autem ratione ex odit consequuntur. Aliquid repellat quisquam, illo hic harum inventore, eveniet suscipit non voluptatum recusandae perferendis excepturi!
+      Rerum repudiandae quaerat minus exercitationem unde blanditiis ipsa eius? Sapiente, soluta perferendis accusantium praesentium cupiditate a, vel ut quaerat illum, deleniti ipsam laboriosam. Nostrum labore eveniet atque et quae amet!
+      Atque quia exercitationem fugit, labore mollitia animi excepturi iure error, porro, praesentium quod id aperiam deserunt fuga tempora. Unde enim facere sint ab quisquam recusandae rerum, sunt voluptatum iusto fuga?
+      Ducimus vel temporibus totam nemo sit ratione porro delectus sapiente incidunt eligendi voluptas praesentium, facilis eveniet aperiam eum dolore. Aliquam quis quidem suscipit sit optio commodi. Natus delectus deleniti autem.
+    </div>
+
+    <footer id="footer" class="footer-dark mt-auto bg-dark text-info m-0">
+        <div class="row container-fluid">
+            <div class="col-md text-center">
+                <p class="h5 text-muted">Dane kontaktowe:</p>
+                <p> Numer telefonu: <span class="h6">123-456-789</span></p>
+                <p> Email: <span class="h6">test@mail.com</span></p> 
+            </div>
+            <div class="col-md d-flex flex-wrap align-items-center justify-content-center">
+                <img src="src/logo.png" width="100" height="100" alt="">
+            </div>
+            <div class="col-md text-center align-middle">
+                <p class="h5 text-muted">Konto bankowe:</p>
+                <p> Numer: <span class="h6">PL 27 1140 2004 0000 3002 0135 5387 </span></p>
+                <p> Placówka: <span class="h6">WWE BP Wrocław, ul. Zmyślona 15</span></p> 
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js" integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA==" crossorigin="anonymous"></script>
+    <script src="../bs5/js/bootstrap.js"></script>
+
+    <script>
+      var offset = 90; //navbar size
+      $(document).ready(function(){
+        // scrollspy offset because of fixed navigation bar
+        $('.navbar li a').click(function(event) {
+          event.preventDefault();
+          $($(this).attr('href'))[0].scrollIntoView();
+          scrollBy(0, -offset);
+        });
+
+        // change navbar appearance on scroll
+        $(window).scroll(function(){
+          $("nav").toggleClass("scrolled", $(this).scrollTop() > 400, {
+              duration: 400, 
+              easing: "swing",
+              });
+          $(".navbar-collapse").toggleClass("background-scrolled", $(this).scrollTop() > 400, {
+              duration: 400, 
+              easing: "swing",
+              });
+            //console.log('test'); 
+        }).stop();
+      });
+    </script>
+</body>
+</html>
