@@ -1,0 +1,6 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+#app_lucky_number:
+#    path: /book/number
+#    controller: App\Controller\BookController::number

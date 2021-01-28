@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    <table cellpadding="4" cellspacing="1" border="0">
+        <tr><td>{{ form_label(form.firstname) }}</td><td>{{ form_widget(form.firstname, { 'attr': { 'class': 'txt', 'style': "width:300px;" } } ) }}</td></tr>
+        {% if form_errors(form.firstname) %}
+        <tr class="error"><td></td><td>{{ form_errors(form.firstname) }}</td></tr>
+        {% endif %}
+        <tr><td>{{ form_label(form.lastname) }}</td><td>{{ form_widget(form.lastname, { 'attr': { 'class': 'txt', 'style': "width:300px;" } }) }}</td></tr>    
+        {% if form_errors(form.lastname) %}
+        <tr class="error"><td></td><td>{{ form_errors(form.lastname) }}</td></tr>
+        {% endif %}
+    </table>
+    {{ form_widget(form.submit) }}
+{{ form_end(form) }}
+
+{% if data|length > 0 %}
+<p>Wysłane: {{ data.firstname }} {{ data.lastname }}</p>
+{% endif %}
+{% endblock %}

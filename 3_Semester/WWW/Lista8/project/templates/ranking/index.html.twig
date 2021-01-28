@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ranking{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/tables.css') }}" type="text/css" />
+{% endblock %}
+
+{% block body %}
+
+<table style="width:100%">
+    <tr>
+        <th>Miejsce</th>
+        <th>Liczba Punktów</th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Miasto</th>
+        <th>Nazwa drużyny</th>
+    </tr>
+{% for position in arr %}
+    {% set status = ((position.points == 0) ? true : false)%}
+    <tr>
+        <td{{(position.place in [1,2,3])?" class='green-background'" : ""}}>{{ position.place }}</td>
+        <td{{status?" class='text-grey'" : ""}}>{{ position.points }}</td>
+        <td{{status?" class='text-grey'" : ""}}>{{ position.name }}</td>
+        <td{{status?" class='text-grey'" : ""}}>{{ position.surname }}</td>
+        <td{{status?" class='text-grey'" : ""}}>{{ position.city }}</td>
+        <td{{status?" class='text-grey'" : ""}}>{{ position.teamName }}</td>
+    </tr>
+{% endfor %}
+</table>
+
+{% endblock %}
