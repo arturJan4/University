@@ -37,6 +37,25 @@
   - lecture: Witold Kwaśnicki
 - Physical education
 
+## Semester III
+- Contemporary International Relations:
+    - lecture: Paweł Turczyński	
+- Discrete Mathematics(MDL):
+    - lecture: Katarzyna Paluch
+    - class: Szymon Dudycz
+- Human-Computer Interaction(KCK):
+    - lecture: Zdzisław Płoski
+    - class: Zdzisław Płoski
+- Internet technologies(WWW):
+	- lecture: Paweł Rajba
+	- lab: Paweł Laskoś-Grabowski
+- Numerical Analysis (B) (ANL):
+    - lecture: Paweł Woźny
+    - class: Paweł Woźny
+- Software engineering(WWW):
+    - lecture: Leszek Grocholski
+    - class: Leszek Grocholski
+
 
 # In Polish
 ## Semestr I
@@ -76,6 +95,3 @@
 - O ekonomii i gospodarce inaczej
   - wykład: Witold Kwaśnicki
 - WF
-
-   
-
