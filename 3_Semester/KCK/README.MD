@@ -1,0 +1,1 @@
+Efektem końcowym prac na przedmiocie jest klikalna makieta zaprojektowanego wcześniej i testowanego interfejsu wykonana przy pomocy narzędzia Figma: [LINK](https://www.figma.com/proto/OWWsiorgwZBLRXCA0qZNnP/Main?node-id=4%3A2&scaling=scale-down)
