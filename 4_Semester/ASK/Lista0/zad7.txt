@@ -1,0 +1,7 @@
+0 - NUL - Null character
+4 - EOT - End of Transmission
+7 - BEL - Bell character
+10 - LF - Newline
+12  - FF - Form feed...
+
+Standard ASCII przeznacza pierwsze 32 kody (0–31) na znaki sterujące. Nie są one przeznaczone do przenoszenia drukowalnych symboli, lecz do sterowania urządzeniem odbierającym dane.
