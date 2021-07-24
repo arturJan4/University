@@ -1,97 +1,66 @@
+
 # In English
 ## Semester I
-- Introduction to Programming in C(WDPC):
-    - lecture: Marek Piotrów
-    - lab: Marek Szykuła
-- Computing for Computer Scientists(PWI):
-    - lecture: Piotr Wieczorek
-    - lab: Piotr Wieczorek
-- Introduction to Computer Science(WDI):
-    - lecture: Tomasz Jurdziński
-    - class: Tomasz Jurdziński
-- Logic for Computer Science:
-    - lecture: Witold Charatonik
-    - class: Tomasz Wierzbicki
-- Calculus:
-    - lecture: Maciej Paluszyński
-    - class: Yuriy Kryakin
+- Introduction to Programming in C (WDPC)
+- Computing for Computer Scientists (PWI)
+- Introduction to Computer Science (WDI)
+- Logic for Computer Science
+- Calculus
 
 ## Semester II
-- Object-oriented programming(PO):
-    - lecture: Marcin Młotkowski
-    - lab: Robert Kraus
-- Programming methodology(MP):
-    - lecture: Filip Sieczkowski, Maciej Piróg, Marek Materzok
-    - lab:  Marek Materzok
-- C++ course(C++):
-    - lecture: Paweł Rzechonek
-    - lab: Robert Kraus
-- Digital logic(LC):
-    - lecture: Marek Materzok
-    - class: Marek Materzok
-- Algebra:
-    - lecture: Artur Jeż
-    - class: Witold Karczewski
+- Object-oriented programming (PO)
+- Programming methodology (MP)
+- C++ course (C++)
+- Digital logic (LC)
+- Algebra (Linear & Abstract)
 - English course B2-II 
 - Another View of Economy
-  - lecture: Witold Kwaśnicki
 - Physical education
 
 ## Semester III
-- Contemporary International Relations:
-    - lecture: Paweł Turczyński	
-- Discrete Mathematics(MDL):
-    - lecture: Katarzyna Paluch
-    - class: Szymon Dudycz
-- Human-Computer Interaction(KCK):
-    - lecture: Zdzisław Płoski
-    - class: Zdzisław Płoski
-- Internet technologies(WWW):
-	- lecture: Paweł Rajba
-	- lab: Paweł Laskoś-Grabowski
-- Numerical Analysis (B) (ANL):
-    - lecture: Paweł Woźny
-    - class: Paweł Woźny
-- Software engineering(WWW):
-    - lecture: Leszek Grocholski
-    - class: Leszek Grocholski
+- Contemporary International Relations
+- Discrete Mathematics (MDL)
+- Human-Computer Interaction (KCK)
+- Internet technologies (WWW)
+- Numerical Analysis (B) (ANL)
+- Software engineering (IO)
+- Optional German course B1
 
+## Semester IV
+- Algorithms and Data Structures (AISD)
+- Computer Architecture for Programmers (ASK)
+- Game Testing (TG)
+- Probability and Statistics (RPIS)
 
 # In Polish
 ## Semestr I
-- Kurs: Wstęp do programowania w języku C:
-    - wykład: Marek Piotrów
-    - pracownia: Marek Szykuła
-- Kurs: Podstawowy warsztat informatyka:
-    - wykład: Piotr Wieczorek
-    - pracownia: Piotr Wieczorek
-- Wstęp do informatyki:
-    - wykład: Tomasz Jurdziński
-    - ćwiczenia: Tomasz Jurdziński
-- Logika dla informatyków:
-    - wykład: Witold Charatonik
-    - ćwiczenia: Tomasz Wierzbicki
-- Analiza matematyczna:
-    - wykład: Maciej Paluszyński
-    - ćwiczenia: Yuriy Kryakin
+- Kurs: Wstęp do programowania w języku C
+- Kurs: Podstawowy warsztat informatyka
+- Wstęp do informatyki
+- Logika dla informatyków
+- Analiza matematyczna
 
 ## Semestr II
-- Programowanie Obiektowe:
-    - wykład: Marcin Młotkowski
-    - pracownia: Robert Kraus
-- Metody programowania:
-    - wykład: Filip Sieczkowski, Maciej Piróg, Marek Materzok
-    - ćwiczenio-pracownia:  Marek Materzok
-- Kurs języka C++:
-    - wykład: Paweł Rzechonek
-    - pracownia: Robert Kraus
-- Logika Cyfrowa:
-    - wykład: Marek Materzok
-    - ćwiczenia: Marek Materzok
-- Algebra:
-    - wykład: Artur Jeż
-    - ćwiczenia: Witold Karczewski
+- Programowanie Obiektowe
+- Metody programowania
+- Kurs języka C++
+- Logika Cyfrowa
+- Algebra
 - Egzamin SPNJO B2-II
 - O ekonomii i gospodarce inaczej
-  - wykład: Witold Kwaśnicki
 - WF
+
+## Semestr III
+- Współczesne stosunki międzynarodowe
+- Matematyka dyskretna
+- Komunikacja człowiek-komputer
+- Kurs WWW
+- Analiza Numeryczna (L)
+- Inżynieria oprogramowania
+- Dodatkowe zajęcia z języka niemieckiego B1
+
+## Semestr IV
+- Algorytmy i struktury danych (AISD)
+- Architektury systemów komputerowych (ASK)
+- Testowanie gier (TG)
+- Rachunek prawdopodobieństwa i statystyka (RPIS)
