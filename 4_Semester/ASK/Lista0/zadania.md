@@ -98,7 +98,7 @@ int main() {
 }
 ```
 
-## 4 (nie deklaruj)
+## 4
 ```c=
 #include <stdio.h>
 #include <stdint.h>
