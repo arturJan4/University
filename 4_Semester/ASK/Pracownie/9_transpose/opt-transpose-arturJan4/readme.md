@@ -49,10 +49,12 @@ W symulacji mamy do czynienia z pamięcią podręczną:
 Rozmiar komórki tablicy to `int` czyli `4` bajty. Można więc cachować `8192` elementów tablicy. 
 Rozmiar macierzy dla `make sim` to `4096 x 4096`.
 Dla bloku `BLOCK=8`, blok ma `4 * 8 * 8 = 256 bajty`.
+
 | Wersja     | Czas (s) | Branch MR | L1 MR  | LL MR  |
 | ---------- | -------- | --------- | ------ | ------ |
 | transpose0 | 1.557326 | 0.025     | 53.125 | 50.855 |
 | transpose1 | 1.727812 | 12.331    | 50.042 | 8.333  |
+
 Jak widać powyżej "zoptymalizowana" wersja nie radzi sobie lepiej dla tej konfiguracji oraz danych. Wynika to z kosztu branch, który przeważa nad zyskiem w L1 i LL (który to jest o wiele niższy dla `transpose1`). Szerokość `n` jest na tyle niska, że cały wiersz tablicy `src` mieści się w L1, dlatego reszta chybień dotyczy `dest`. Dodatkowo n jest potęgą dwójki, a jak zobaczymy później są to wartości specyficzne, które maksymalizują liczbę chybień w L1, ze względu na podział cache na linie.
 
 ### Wykresy

@@ -60,21 +60,21 @@ A tutaj przykład odwrotny do domyślnego:
 Wnioski
 ---
 ### Wyniki z wykładu
-Wyniki różnią się, mamy do czynienia z o wiele mniejszym CPI, co może wynikać z różnicy pomiedzy procesorami. Wykres przypomina jednak ten z wykładu. Dodatkowo obserwowalne są duże, mimo uśrednienia, wachania wyników dla ijk. Spodziewane ilości missów można odczytać z tabeli np. 1.0 miss-ratio dla `matmult2`, ale np. miss-ratio dla `matmult0` jest większe niż z wykładu.
+Wyniki różnią się, mamy do czynienia z o wiele mniejszym CPI, co może wynikać z różnicy pomiedzy procesorami. Wykres przypomina jednak ten z wykładu. Dodatkowo obserwowalne są duże, mimo uśrednienia, wahania wyników dla jki (`matmult2`). Spodziewane ilości missów można odczytać z tabeli np. 1.0 miss-ratio dla `matmult2`, ale np. miss-ratio dla `matmult0` jest większe, niż spodziewalibyśmy się z wykładu.
 
 ### Rozbieżność pomiedzy wynikami
-Gdy spojrzymy na tabelę wyników `make sim`, zauważamy, że wynika to z wysokiego współczynnika chybień dla L1 dla `matmult0`, gdzie dla `matmult1` oraz `matmult2` jest on na tyle bliski, że we wybranym przeze mnie zaokrągleniu jest taki sami.
-Sposób skanowania macierzy zmienia lokalność cache (to co pozostaje po iteracji), a to ma wpływ na miss-ratio i sumaryczne miss-penalty.
+Gdy spojrzymy na tabelę wyników `make sim`, zauważamy, że wynika to z wysokiego współczynnika chybień na iterację dla `matmult0`, oraz `matmul2` (zgodnie z wykładem).  
+Sposób skanowania macierzy zmienia lokalność cache (to, co pozostaje po wewnętrznej iteracji), a to ma wpływ na miss-ratio i sumaryczne miss-penalty.
 Wersja kafelkowana: `matmult3` charakteryzuję się wysokim branch miss ratio, ale za to o wiele częściej trafiamy w cache L1.
 
 ### Rozmiar kafelka, a matmult3
-Jak widać rozmiar kafelka ma znaczenie, ale nie to znaczy, że im więcej tym lepiej. Optymalny rozmiar dla mojej konfiguracji to 8 (co koreluje z 8-drożną wieolodrożną sekcyjno-skojarzeniowo pamięcią). Mniejszy rozmiar niż daje gorsze wyniki, a większe rozmiary zwiększają liczbę chybień L1.
+Jak widać, na wykresie dotyczącym BLOCK, rozmiar kafelka ma znaczenie, ale nie to znaczy, że im więcej, tym lepiej. Optymalny rozmiar dla mojej konfiguracji to 8 (co koreluje z 8-drożną wieolodrożną sekcyjno-skojarzeniowo pamięcią). Mniejszy rozmiar niż 8 daje gorsze wyniki, a większe rozmiary zwiększają liczbę chybień L1.
 
 ### Spadek wydajności
-Ze względu na to że nasza funkcja jest O(n^3) to dla wersji `ijk` obserwujemy drastyczny spadek wydajności przy n w okolicach 2048. Inne wersje radzą sobie jeszcze przyzwoicie (~6 sekund).
+Ze względu na to, że nasza funkcja jest O(n^3) to dla wersji `jki` obserwujemy drastyczny spadek wydajności przy n w okolicach 2048. Inne wersje radzą sobie jeszcze przyzwoicie (~6 sekund).
 
 ### Inny wybór OFFSET
 Inny wybór wartości OFFSET nie ma u mnie większego znaczenia. Nie zauważyłem spadku wydajności `matmult3` po ustawieniu wartości na 0.
 
 ### Podsumowanie
-Dla testowanych rozmiarów tablic, oraz mojej konfiguracji kafelkowanie nie przyniosło pożądanych rezultatów. Należałoby więc z niego zrezygnować, by nie tracić na czytelności kodu lub zmodyfikować paramatery pod poszczególne zadanie, by optymalizacja była warta. Widać natomiast dużą różnicę pomiędzy wydajnościami `matmult2` i `matmult3`, a `matmult1` które lepiej wykorzystują cache L1 oraz L2, dzięki lepszej lokalności przestrzennej.
+Dla testowanych rozmiarów tablic, oraz mojej konfiguracji kafelkowanie nie przyniosło pożądanych rezultatów. Należałoby więc z niego zrezygnować, by nie tracić na czytelności kodu lub zmodyfikować paramatery pod poszczególne zadanie, by optymalizacja była warta. Może dla pewnych zastosowań byłoby to warte użycia (np. jeśli zależy nam na każdej milisekundzie, a n jest wysokie). Widać natomiast dużą różnicę pomiędzy wydajnościami `matmult0` i `matmult1`, a `matmult2` które lepiej wykorzystują cache L1 oraz L2, dzięki lepszej lokalności przestrzennej.

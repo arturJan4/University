@@ -1,4 +1,4 @@
-# Raport do zadania 4 - binsearch
+# Raport do zadania 3 - randwalk
 
 ### Autor: Artur Jankowski
 ### Numer indeksu: 317928
@@ -113,7 +113,7 @@ Długość całych programów jest podobna:
 
 `objdump --disassemble=randwalk1 randwalk.o | tail -n +8 | wc -l` -> 78
 
-Natomiast wnętrze pętli przeanalizowałem w pliku `data_wydruk1.txt` - oznaczając interesujące instrukcje oraz miejsce początku i końca.
+Natomiast wnętrze pętli przeanalizowałem w pliku `data_wydruk1.txt`[link](generated_data/data_wydruk1.txt) - oznaczając interesujące instrukcje oraz miejsce początku i końca.
 
 **randwalk0:** 46 instrukcji (przedzielonych blokiem z instrukcją `ret`)
 
@@ -148,7 +148,7 @@ Niech poniższa wersja będzie wersją domyślną:
     j -= (d == 2) & (j > 0);        // 3
     j += (d == 3) & (j < n - 1);    // 4
 ```
-Powyższe instrukcje możemy ułożyć na (4! = 24) sposobów. Dokonałem tych zamian, a uśrednione wyniki dla paru wartości `n`, po ponownym skompilowaniu umieściłem w pliku `data_ipc_n_combined.dat`. 
+Powyższe instrukcje możemy ułożyć na (4! = 24) sposobów. Dokonałem tych zamian, a uśrednione wyniki dla paru wartości `n`, po ponownym skompilowaniu umieściłem w pliku `data_ipc_n_combined.dat`. [link](generated_data/data_ipc_n_combined.dat)
 
 Znalazłem w nim wersję, która sprawuje się najlepiej (kolejność: `2-1-4-3`) oraz taką, która sprawuje się najgorzej (kolejność: `1-3-4-2`), oraz wyliczyłem medianę IPC dla 24 wersji. Znalezione wersje dawały najlepsze/najgorsze wyniki dla każdego `n`. Na **wykresie nr 2** można zobaczyć porównanie tych wersji `randwalk1`.
 
@@ -201,8 +201,8 @@ Różnice obserwowalne są oczywiście pomiędzy różną liczbą kroków, więc
 Może to wynikać z tego, że poruszamy się w jednym z 4 kierunków, więc lokalność przestrzenna oraz czasowa będzie wysoka. To, że lokalność jest wysoka, wynika również z wygenerowanej tabeli ze średnimi współczynnikami chybień dla różnych rozmiarów. 
 
 ### Podsumowanie
-Sumaryczne koszty złego przewidywania pętli dla losowych lub niepodążających jakimś trendem danych są duże. 
+Sumaryczne koszty złego przewidywania soku dla losowych lub niepodążających jakimś trendem danych są duże. 
 
 Mimo że współczesne predyktory skoków są bardzo zaawansowane, to są momenty, w których możemy je wspierać, np. pisząc kod wykorzystujący operator `?:`, lub obliczając wszystkie gałęzie, tak by nasz kompilator mógł wygenerować kod maszynowy ograniczający skoki warunkowe. 
 
-Zauważyliśmy też, że zmiana kolejności instrukcji może mieć duży wpływ na działanie programu, dzięki lepszemu wykorzystaniu mikroarchitektury procesora.
+Zauważyliśmy też, że zmiana kolejności instrukcji może mieć duży wpływ na działanie programu, dzięki lepszemu wykorzystaniu mikroarchitektury procesora, taka optymalizacja jest jednak mocno zależna od docelowej konfiguracji.
