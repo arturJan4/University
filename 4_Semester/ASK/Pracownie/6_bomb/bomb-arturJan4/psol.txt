@@ -1,7 +1,0 @@
-I was trying to give Tina Fey more material.
-1 2 4 7 11 16
-4 t 439
-1 0 DrEvil
-beldog
-6 2 4 1 3 5
-99
