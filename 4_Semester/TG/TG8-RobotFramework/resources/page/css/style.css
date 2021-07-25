@@ -1,0 +1,136 @@
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 16px 16px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    text-align: center;
+    padding: 32px;
+}
+
+.column {
+    float: left;
+    width: 33.3%;
+    padding: 5px;
+}
+
+.column img {
+    margin-top: 5px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+img.gallery {
+    width: 100%
+}
+
+#contact_form input[type=text], #contact_form select, #contact_form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+form.search {
+    float: right;
+    margin-right: 20px;
+}
+
+input[type=text]{
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #287bc9;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+button, .button {
+    background-color: #287bc9;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 10px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+button:hover, .button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+img.img_link {
+    height: 40px;
+    width: auto;
+}
+
+
+.wrapper {
+    flex: 1 0 auto;
+}
+
+.footer {
+    text-align: center;
+    width: 100%;
+    background-color: #f5f5f5;
+    flex-shrink: 0
+}
