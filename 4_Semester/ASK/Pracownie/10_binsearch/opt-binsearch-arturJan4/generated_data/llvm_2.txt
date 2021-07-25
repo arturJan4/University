@@ -1,0 +1,164 @@
+Iterations:        10000
+Instructions:      210000
+Total Cycles:      113425
+Total uOps:        250000
+
+Dispatch Width:    6
+uOps Per Cycle:    2.20
+IPC:               1.85
+Block RThroughput: 4.2
+
+
+Cycles with backend pressure increase [ 20.58% ]
+Throughput Bottlenecks: 
+  Resource Pressure       [ 16.66% ]
+  - SKLPort0  [ 16.66% ]
+  - SKLPort1  [ 15.68% ]
+  - SKLPort5  [ 15.68% ]
+  - SKLPort6  [ 16.66% ]
+  Data Dependencies:      [ 10.78% ]
+  - Register Dependencies [ 10.78% ]
+  - Memory Dependencies   [ 0.00% ]
+
+Critical sequence based on the simulation:
+
+              Instruction                                 Dependency Information
+ +----< 20.   retq
+ |
+ |    < loop carried > 
+ |
+ |      0.    endbr64
+ |      1.    testq	%rsi, %rsi
+ |      2.    jle	.L6
+ |      3.    xorl	%eax, %eax
+ |      4.    jmp	.L4
+ +----> 5.    addq	$1, %rax                          ## RESOURCE interference:  SKLPort6 [ probability: 22% ]
+ |      6.    cmpl	%edx, %ecx
+ |      7.    je	.L7
+ |      8.    cmpq	%rax, %rsi
+ |      9.    jle	.L6
+ +----> 10.   movl	(%rdi,%rax,4), %ecx               ## REGISTER dependency:  %rax
+ |      11.   addq	%rax, %rax
+ +----> 12.   cmpl	%edx, %ecx                        ## REGISTER dependency:  %ecx
+ +----> 13.   jge	.L10                              ## REGISTER dependency:  %flags
+ |      14.   addq	$2, %rax
+ |      15.   cmpq	%rax, %rsi
+ |      16.   jg	.L4
+ |      17.   xorl	%eax, %eax
+ |      18.   retq
+ |      19.   movl	$1, %eax
+ |      20.   retq
+ |
+ |    < loop carried > 
+ |
+ +----> 11.   addq	%rax, %rax                        ## RESOURCE interference:  SKLPort6 [ probability: 33% ]
+
+
+Instruction Info:
+[1]: #uOps
+[2]: Latency
+[3]: RThroughput
+[4]: MayLoad
+[5]: MayStore
+[6]: HasSideEffects (U)
+
+[1]    [2]    [3]    [4]    [5]    [6]    Instructions:
+ 1      100   0.25                  U     endbr64
+ 1      1     0.25                        testq	%rsi, %rsi
+ 1      1     0.50                        jle	.L6
+ 1      0     0.17                        xorl	%eax, %eax
+ 1      1     0.50                        jmp	.L4
+ 1      1     0.25                        addq	$1, %rax
+ 1      1     0.25                        cmpl	%edx, %ecx
+ 1      1     0.50                        je	.L7
+ 1      1     0.25                        cmpq	%rax, %rsi
+ 1      1     0.50                        jle	.L6
+ 1      5     0.50    *                   movl	(%rdi,%rax,4), %ecx
+ 1      1     0.25                        addq	%rax, %rax
+ 1      1     0.25                        cmpl	%edx, %ecx
+ 1      1     0.50                        jge	.L10
+ 1      1     0.25                        addq	$2, %rax
+ 1      1     0.25                        cmpq	%rax, %rsi
+ 1      1     0.50                        jg	.L4
+ 1      0     0.17                        xorl	%eax, %eax
+ 3      7     1.00                  U     retq
+ 1      1     0.25                        movl	$1, %eax
+ 3      7     1.00                  U     retq
+
+
+Resources:
+[0]   - SKLDivider
+[1]   - SKLFPDivider
+[2]   - SKLPort0
+[3]   - SKLPort1
+[4]   - SKLPort2
+[5]   - SKLPort3
+[6]   - SKLPort4
+[7]   - SKLPort5
+[8]   - SKLPort6
+[9]   - SKLPort7
+
+
+Resource pressure per iteration:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    
+ -      -     5.11   4.67   1.50   1.50    -     5.11   5.11    -     
+
+Resource pressure by instruction:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    Instructions:
+ -      -     0.11   0.33    -      -      -     0.56    -      -     endbr64
+ -      -     0.33   0.11    -      -      -     0.56    -      -     testq	%rsi, %rsi
+ -      -     0.67    -      -      -      -      -     0.33    -     jle	.L6
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -     0.78    -      -      -      -      -     0.22    -     jmp	.L4
+ -      -     0.11   0.67    -      -      -     0.22    -      -     addq	$1, %rax
+ -      -      -     0.33    -      -      -     0.67    -      -     cmpl	%edx, %ecx
+ -      -     0.67    -      -      -      -      -     0.33    -     je	.L7
+ -      -     0.11   0.56    -      -      -     0.33    -      -     cmpq	%rax, %rsi
+ -      -     0.67    -      -      -      -      -     0.33    -     jle	.L6
+ -      -      -      -     0.50   0.50    -      -      -      -     movl	(%rdi,%rax,4), %ecx
+ -      -      -     0.33    -      -      -     0.56   0.11    -     addq	%rax, %rax
+ -      -     0.11   0.11    -      -      -     0.22   0.55    -     cmpl	%edx, %ecx
+ -      -     0.44    -      -      -      -      -     0.56    -     jge	.L10
+ -      -      -     0.67    -      -      -     0.22   0.11    -     addq	$2, %rax
+ -      -      -     0.56    -      -      -     0.33   0.11    -     cmpq	%rax, %rsi
+ -      -     0.56    -      -      -      -      -     0.44    -     jg	.L4
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -     0.22   0.22   0.50   0.50    -     0.55   1.00    -     retq
+ -      -     0.33   0.22    -      -      -     0.44    -      -     movl	$1, %eax
+ -      -      -     0.56   0.50   0.50    -     0.44   1.00    -     retq
+
+
+Timeline view:
+                    0123456789          0123456789          01
+Index     0123456789          0123456789          0123456789  
+
+
+Average Wait times (based on the timeline view):
+[0]: Executions
+[1]: Average time spent waiting in a scheduler's queue
+[2]: Average time spent waiting in a scheduler's queue while ready
+[3]: Average time elapsed from WB until retire stage
+
+      [0]    [1]    [2]    [3]
+0.     10    2.3    2.3    0.0       endbr64
+1.     10    2.8    2.8    98.5      testq	%rsi, %rsi
+2.     10    4.0    0.6    96.9      jle	.L6
+3.     10    1.8    0.0    99.6      xorl	%eax, %eax
+4.     10    3.4    3.4    97.0      jmp	.L4
+5.     10    2.6    0.8    97.8      addq	$1, %rax
+6.     10    3.4    0.2    96.9      cmpl	%edx, %ecx
+7.     10    4.4    0.0    95.9      je	.L7
+8.     10    3.9    0.8    96.0      cmpq	%rax, %rsi
+9.     10    4.4    0.0    95.0      jle	.L6
+10.    10    2.6    0.0    92.8      movl	(%rdi,%rax,4), %ecx
+11.    10    3.4    0.8    96.0      addq	%rax, %rax
+12.    10    7.5    0.0    91.8      cmpl	%edx, %ecx
+13.    10    8.5    0.0    90.8      jge	.L10
+14.    10    3.9    0.0    95.0      addq	$2, %rax
+15.    10    4.4    0.0    94.0      cmpq	%rax, %rsi
+16.    10    5.4    0.0    93.0      jg	.L4
+17.    10    4.4    0.0    95.0      xorl	%eax, %eax
+18.    10    3.6    3.6    88.3      retq
+19.    10    2.9    2.9    94.5      movl	$1, %eax
+20.    10    3.3    3.3    81.4      retq
+       10    3.9    1.0    89.8      <total>

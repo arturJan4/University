@@ -1,0 +1,65 @@
+# callgrind format
+version: 1
+creator: callgrind-3.15.0
+pid: 46218
+cmd:  ./main -r 1000
+part: 1
+
+
+desc: I1 cache: 32768 B, 64 B, 8-way associative
+desc: D1 cache: 32768 B, 64 B, 8-way associative
+desc: LL cache: 8388608 B, 64 B, 16-way associative
+
+desc: Timerange: Basic block 0 - 49156
+desc: Trigger: Program termination
+
+positions: line
+events: Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw Bc Bcm Bi Bim
+summary: 2 1
+
+
+ob=(3) /usr/lib/x86_64-linux-gnu/libc-2.31.so
+fl=(112) /build/glibc-eX1tMB/glibc-2.31/csu/../csu/libc-start.c
+fn=(350) (below main)
+cob=(5) /home/artur/Desktop/ASK/Pracownie/4_cubef/cubef-arturJan4/main
+cfi=(118) /home/artur/Desktop/ASK/Pracownie/4_cubef/cubef-arturJan4/main.c
+cfn=(376) main
+calls=1 92 
+308 2 1
+
+ob=(1) /usr/lib/x86_64-linux-gnu/ld-2.31.so
+fl=(1) ???
+fn=(0) 0x0000000000001100
+cob=(5)
+cfi=(111) ???
+cfn=(348) _start
+calls=1 0 
+0 2 1
+
+ob=(5)
+fl=(111)
+fn=(348)
+cob=(3)
+cfi=(112)
+cfn=(350)
+calls=1 137 
+0 2 1
+
+fl=(126) /home/artur/Desktop/ASK/Pracownie/4_cubef/cubef-arturJan4/cubef.s
+fn=(420) cubef
+22 1
++1 1 1
+
+fl=(118)
+fn=(418) run
+cfi=(126)
+cfn=(420)
+calls=1 22 
+74 2 1
+
+fn=(376)
+cfn=(418)
+calls=1 69 
+124 2 1
+
+totals: 2 1

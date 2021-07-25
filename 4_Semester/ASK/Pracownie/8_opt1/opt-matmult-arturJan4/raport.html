@@ -1,0 +1,88 @@
+<h1>Raport do zadania 1</h1>
+
+<h3>Autor: Artur Jankowski</h3>
+
+<h3>Numer indeksu: 317928</h3>
+
+<h2>Konfiguracja</h2>
+
+<p>Informacje o systemie:</p>
+
+<ul>
+<li>Dystrybucja: Ubuntu 20.04.2 LTS</li>
+<li>Jądro systemu: Linux 5.4.0-73-generic</li>
+<li>Kompilator: GNU GCC 9.3.0</li>
+<li>Procesor: Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz</li>
+<li>Liczba rdzeni: 4</li>
+</ul>
+
+<p>Pamięć podręczna:</p>
+
+<ul>
+<li>L1d: 32 KiB, 8-drożny (per rdzeń), rozmiar linii 64B</li>
+<li>L2: 256 KiB, 4-drożny (per rdzeń), rozmiar linii 64B</li>
+<li>L3: 8 MiB , 16-drożny (współdzielony), rozmiar linii 64B</li>
+</ul>
+
+<p>Pamięć TLB:</p>
+
+<ul>
+<li>L1d: 4KiB strony, 4-drożny, 64 wpisy</li>
+<li>L2: 4KiB strony, 6-drożny, 1536 wpisów</li>
+</ul>
+
+<p>Informacje o pamięciach podręcznych uzyskano na podstawie wydruku programu
+<code>x86info</code> oraz <code>lscpu</code>, <code>getconf</code>,  <code>cpuid</code>.</p>
+
+<h2>Wyniki eksperymentów</h2>
+
+<p>Skrypty testujące zawarłem w pliku <code>matmult_tests.py</code>.
+Uśrednione wyniki dla parunastu testów wykonywanych przy pomocy <code>make sim</code> znajdujdują się w poniższej tabeli (funkcja <code>make_sim</code>):</p>
+
+<p>| Wersja    | Czas wykonywania (s) | Branch MR | L1 MR   | LL MR   |
+| --- | -------------------- | --------- | ------- | ------- |
+| matmult0    | 1.5853               | 0.391     | 50.3380 | 50.3180 |
+| matmult1    | 1.4067               | 0.391     | 6.4570  | 0.404   |
+| matmult2    | 1.4561               | 0.391     | 6.4570  | 0.404   |
+| matmult3    | 1.6924               | 12.4840   | 1.288   | 0.761   |</p>
+
+<p>Wyniki dla parunastu uruchomień w zależności parametru <code>-n</code> od cpi (wyliczonego skryptem na podstawie IPC i liczby instrukcji z flagi <code>-p</code>) zawarłem na poniższym wykresie (funkcja <code>cpi_to_n_csv</code>):
+<img src="https://i.imgur.com/dHCjpeR.png" alt="" title="" />
+Nie widać na pierwszy rzut oka zależności podobnej do slajdu 46</p>
+
+<p>Poniżej widać zależność rozmiaru bloku (stała <code>BLOCK</code> z matmult.h), testy wykonałem z flagami <code>-n 1024 -v 3</code> - <code>block_size_test</code>
+<img src="https://i.imgur.com/qP8VGAN.png" alt="" title="" /></p>
+
+<p>Natomiast przy próbie analizy wpływu offsetu naszykowałem dwa wykresy analogiczne do pierwszego (czyli przedstawiam różne warianty funkcji <code>matmult</code>, w zależności od rozmiaru tablicy i czasu, dodatkowo obciąłem oś <strong>OX</strong>, aby móc lepiej zauważyć różnice, <code>BLOCK = 16</code>) - <code>offset_test</code>:
+<img src="https://i.imgur.com/AZIZbbB.png" alt="" title="" />
+Tutaj mamy przykład dla offsetów ustawionych na zero:
+<img src="https://i.imgur.com/gRMsCUu.png" alt="" title="" />
+A tutaj przykład odwrotny do domyślnego:
+<img src="https://i.imgur.com/e96rzV4.png" alt="" title="" /></p>
+
+<h2>Wnioski</h2>
+
+<h3>Wyniki z wykładu</h3>
+
+<p>Wyniki różnią się, po pierwsze mamy do czynienia z o wiele mniejszym CPI. Po drugie nie widać różnicy pomiędzy wariantami kij i jki. Dodatkowo obserwowalne są duże, mimo uśrednienia, wachania wyników dla ijk.</p>
+
+<h3>Rozbieżność pomiedzy wynikami</h3>
+
+<p>Gdy spojrzymy na tabelę wyników <code>make sim</code>, zauważamy, że wynika to z wysokiego współczynnika chybień dla L1 dla <code>matmult0</code>, gdzie dla <code>matmult1</code> oraz <code>matmult2</code> jest on na tyle bliski, że we wybranym przeze mnie zaokrągleniu jest taki sami.
+Wersja kafelkowana: <code>matmult3</code> charakteryzuję się wysokim branch miss ratio, ale za to o wiele częściej trafiamy w cache L1.</p>
+
+<h3>Rozmiar kafelka, a matmult3</h3>
+
+<p>Jak widać rozmiar kafelka ma znaczenie, ale nie to znaczy, że im więcej tym lepiej. Optymalny rozmiar dla mojej konfiguracji to 8 (co koreluje z 8-drożną wieolodrożną sekcyjno-skojarzeniowo pamięcią). Mniejszy rozmiar niż daje gorsze wyniki, a większe rozmiary zwiększają liczbę chybień L1.</p>
+
+<h3>Spadek wydajności</h3>
+
+<p>Ze względu na to że nasza funkcja jest O(n^3) to dla wersji <code>ijk</code> obserwujemy drastyczny spadek wydajności przy n w okolicach 2048. Inne wersje radzą sobie jeszcze przyzwoicie (~6 sekund).</p>
+
+<h3>Inny wybór OFFSET</h3>
+
+<p>Inny wybór wartości OFFSET nie ma u mnie większego znaczenia. Nie zauważyłem spadku wydajności <code>matmult3</code> po ustawieniu wartości na 0.</p>
+
+<h3>Podsumowanie</h3>
+
+<p>Dla testowanych rozmiarów tablic, oraz mojej konfiguracji kafelkowanie nie przyniosło pożądanych rezultatów. Należałoby więc z niego zrezygnować, by nie tracić na czytelności kodu lub zmodyfikować paramatery pod poszczególne zadanie, by optymalizacja była warta. Widać natomiast dużą różnicę pomiędzy wydajnościami <code>matmult2</code> i <code>matmult3</code>, które lepiej wykorzystują cache L1 oraz L2.</p>
