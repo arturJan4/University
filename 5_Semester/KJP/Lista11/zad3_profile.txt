@@ -1,0 +1,29 @@
+PROFIL dla uruchomionego i wypisanego przy pomocy pretty_print przykładu "example_hard".
+
+48828923 function calls (36621828 primitive calls) in 97.808 seconds
+
+   Ordered by: cumulative time
+   List reduced from 57 to 10 due to restriction <10>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   97.808   97.808 /home/artur/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/193.6494.30/plugins/python/helpers/profiler/prof_util.py:14(execfile)
+        1    0.000    0.000   97.807   97.807 {built-in method builtins.exec}
+        1    0.000    0.000   97.807   97.807 /home/artur/PycharmProjects/Kurs/Lista11/zad3.py:4(<module>)
+122070921    8.683    0.000   97.806   97.806 /home/artur/PycharmProjects/Kurs/Lista11/zad3.py:54(solve_sudoku)
+ 12207091   44.290    0.000   49.735    0.000 /home/artur/PycharmProjects/Kurs/Lista11/zad3.py:7(valid_numbers)
+ 12207092   39.388    0.000   39.388    0.000 /home/artur/PycharmProjects/Kurs/Lista11/zad3.py:41(first_empty)
+ 12207091    5.445    0.000    5.445    0.000 /home/artur/PycharmProjects/Kurs/Lista11/zad3.py:38(<listcomp>)
+        1    0.001    0.001    0.001    0.001 {built-in method builtins.compile}
+        1    0.000    0.000    0.000    0.000 /home/artur/PycharmProjects/Kurs/Lista11/zad3.py:81(pretty_print_sudoku)
+       15    0.000    0.000    0.000    0.000 /usr/lib/python3.8/typing.py:255(inner)
+
+Program wykonywał się około ~97 sekund, na przykładzie, który wymagał sprawdzenia wielu możliwości (wiele pustych pól).
+
+Widzimy, że funkcja "solve_sudoku" sama w sobie nie zabiera wiele czasu (nie warto jej więc raczej bezpośrednio optymalizować),
+ale sumarycznie to praktycznie całe działanie programu, w wyniku wywołań rekurencyjnych do "valid_numbers" i "first_empty".
+
+Wiemy, więc, że warto byłoby zoptymalizować obie te funkcje lub ograniczyć liczbę ich wywołań.
+(np. ponumerować pola i pamiętać najmniejsze wolne, pamiętać możliwe liczby dla każdego pola i aktualizować dynamicznie,
+wygenerować profil per-linia i zastosować jakieś sztuczki itp.)
+
+Widzimy też dodatkowo że list comprehension w "valid_numbers" używane przy zwracaniu zużywa aż 5% czasu.

@@ -1,0 +1,908 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module zad2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>zad2</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/artur/PycharmProjects/Kurs/Lista11/zad2.py">/home/artur/PycharmProjects/Kurs/Lista11/zad2.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;Artur&nbsp;Jankowski<br>
+#&nbsp;lista&nbsp;11&nbsp;(5&nbsp;zad&nbsp;2)<br>
+#&nbsp;indeks:&nbsp;317928</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="itertools.html">itertools</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="abc.html#ABC">abc.ABC</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="zad2.html#Formula">Formula</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="zad2.html#Binop">Binop</a>(<a href="zad2.html#Formula">Formula</a>, <a href="abc.html#ABC">abc.ABC</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="zad2.html#And">And</a>
+</font></dt><dt><font face="helvetica, arial"><a href="zad2.html#Imp">Imp</a>
+</font></dt><dt><font face="helvetica, arial"><a href="zad2.html#Or">Or</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="zad2.html#BoolConst">BoolConst</a>(<a href="zad2.html#Formula">Formula</a>, <a href="abc.html#ABC">abc.ABC</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="zad2.html#FalseConst">FalseConst</a>
+</font></dt><dt><font face="helvetica, arial"><a href="zad2.html#TrueConst">TrueConst</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="zad2.html#Unop">Unop</a>(<a href="zad2.html#Formula">Formula</a>, <a href="abc.html#ABC">abc.ABC</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="zad2.html#Not">Not</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="zad2.html#Var">Var</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="builtins.html#Exception">builtins.Exception</a>(<a href="builtins.html#BaseException">builtins.BaseException</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="zad2.html#DefinitionError">DefinitionError</a>
+</font></dt><dt><font face="helvetica, arial"><a href="zad2.html#MisleadingNameError">MisleadingNameError</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="And">class <strong>And</strong></a>(<a href="zad2.html#Binop">Binop</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#And">And</a>(form1:&nbsp;zad2.<a href="#Formula">Formula</a>,&nbsp;form2:&nbsp;zad2.<a href="#Formula">Formula</a>)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Represents&nbsp;typical&nbsp;and&nbsp;operator&nbsp;(both&nbsp;prepositions&nbsp;must&nbsp;be&nbsp;true).<br>
+0&nbsp;∧&nbsp;1&nbsp;==&nbsp;False<br>
+0&nbsp;∧&nbsp;0&nbsp;==&nbsp;False<br>
+1&nbsp;∧&nbsp;1&nbsp;==&nbsp;True<br>
+1&nbsp;∧&nbsp;0&nbsp;==&nbsp;False<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="zad2.html#And">And</a></dd>
+<dd><a href="zad2.html#Binop">Binop</a></dd>
+<dd><a href="zad2.html#Formula">Formula</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="And-evaluate"><strong>evaluate</strong></a>(self, variables: Dict[str, bool] = None) -&gt; bool</dt><dd><tt>Evaluate&nbsp;both&nbsp;formulas&nbsp;recursively&nbsp;and&nbsp;then&nbsp;use&nbsp;Python's&nbsp;inbuilt&nbsp;and&nbsp;operator.</tt></dd></dl>
+
+<dl><dt><a name="And-simplify"><strong>simplify</strong></a>(self) -&gt; zad2.Formula</dt><dd><tt>Using&nbsp;two&nbsp;rules&nbsp;(and&nbsp;mirrored&nbsp;versions).<br>
+False&nbsp;∧&nbsp;a&nbsp;==&nbsp;False<br>
+True&nbsp;&nbsp;∧&nbsp;a&nbsp;==&nbsp;a</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>symbol</strong> = '∧'</dl>
+
+<hr>
+Methods inherited from <a href="zad2.html#Binop">Binop</a>:<br>
+<dl><dt><a name="And-__init__"><strong>__init__</strong></a>(self, form1: zad2.Formula, form2: zad2.Formula) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="And-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Use&nbsp;some&nbsp;evaluation&nbsp;order&nbsp;inference&nbsp;to&nbsp;limit&nbsp;number&nbsp;of&nbsp;'('&nbsp;and&nbsp;')'&nbsp;symbols.<br>
+:return:&nbsp;string&nbsp;representation&nbsp;of&nbsp;formula&nbsp;without&nbsp;too&nbsp;much&nbsp;parentheses</tt></dd></dl>
+
+<dl><dt><a name="And-get_variables"><strong>get_variables</strong></a>(self) -&gt; List[str]</dt><dd><tt><a href="#Binop">Binop</a>&nbsp;has&nbsp;two&nbsp;formulas&nbsp;so&nbsp;just&nbsp;recursively&nbsp;concatenate&nbsp;two&nbsp;lists.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="And-__add__"><strong>__add__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;+&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∨&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="And-__invert__"><strong>__invert__</strong></a>(self) -&gt; 'Formula'</dt><dd><tt>~f&nbsp;==&nbsp;¬f</tt></dd></dl>
+
+<dl><dt><a name="And-__mul__"><strong>__mul__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;*&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∧&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="And-__rshift__"><strong>__rshift__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;→&nbsp;f2&nbsp;==&nbsp;f1&nbsp;&gt;&gt;&nbsp;f2</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="And-tautology"><strong>tautology</strong></a>(formula: 'Formula') -&gt; str</dt><dd><tt>checks&nbsp;if&nbsp;given&nbsp;formula&nbsp;is&nbsp;a&nbsp;true&nbsp;for&nbsp;all&nbsp;assignments&nbsp;of&nbsp;variables</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Binop">class <strong>Binop</strong></a>(<a href="zad2.html#Formula">Formula</a>, <a href="abc.html#ABC">abc.ABC</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Binop">Binop</a>(form1:&nbsp;zad2.<a href="#Formula">Formula</a>,&nbsp;form2:&nbsp;zad2.<a href="#Formula">Formula</a>)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Binary&nbsp;operations&nbsp;(form1&nbsp;&lt;symbol&gt;&nbsp;form2)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="zad2.html#Binop">Binop</a></dd>
+<dd><a href="zad2.html#Formula">Formula</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Binop-__init__"><strong>__init__</strong></a>(self, form1: zad2.Formula, form2: zad2.Formula) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Binop-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Use&nbsp;some&nbsp;evaluation&nbsp;order&nbsp;inference&nbsp;to&nbsp;limit&nbsp;number&nbsp;of&nbsp;'('&nbsp;and&nbsp;')'&nbsp;symbols.<br>
+:return:&nbsp;string&nbsp;representation&nbsp;of&nbsp;formula&nbsp;without&nbsp;too&nbsp;much&nbsp;parentheses</tt></dd></dl>
+
+<dl><dt><a name="Binop-evaluate"><strong>evaluate</strong></a>(self, variables: Dict[str, bool] = None) -&gt; bool</dt><dd><tt><a href="#Binop">Binop</a>'s&nbsp;are&nbsp;not&nbsp;evaluated&nbsp;directly.</tt></dd></dl>
+
+<dl><dt><a name="Binop-get_variables"><strong>get_variables</strong></a>(self) -&gt; List[str]</dt><dd><tt><a href="#Binop">Binop</a>&nbsp;has&nbsp;two&nbsp;formulas&nbsp;so&nbsp;just&nbsp;recursively&nbsp;concatenate&nbsp;two&nbsp;lists.</tt></dd></dl>
+
+<dl><dt><a name="Binop-simplify"><strong>simplify</strong></a>(self) -&gt; zad2.Formula</dt><dd><tt>No&nbsp;universal&nbsp;rules&nbsp;for&nbsp;simplification&nbsp;of&nbsp;<a href="#Binop">Binop</a>'s.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>symbol</strong> = '&lt;default symbol&gt;'</dl>
+
+<hr>
+Methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="Binop-__add__"><strong>__add__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;+&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∨&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="Binop-__invert__"><strong>__invert__</strong></a>(self) -&gt; 'Formula'</dt><dd><tt>~f&nbsp;==&nbsp;¬f</tt></dd></dl>
+
+<dl><dt><a name="Binop-__mul__"><strong>__mul__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;*&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∧&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="Binop-__rshift__"><strong>__rshift__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;→&nbsp;f2&nbsp;==&nbsp;f1&nbsp;&gt;&gt;&nbsp;f2</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="Binop-tautology"><strong>tautology</strong></a>(formula: 'Formula') -&gt; str</dt><dd><tt>checks&nbsp;if&nbsp;given&nbsp;formula&nbsp;is&nbsp;a&nbsp;true&nbsp;for&nbsp;all&nbsp;assignments&nbsp;of&nbsp;variables</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BoolConst">class <strong>BoolConst</strong></a>(<a href="zad2.html#Formula">Formula</a>, <a href="abc.html#ABC">abc.ABC</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#BoolConst">BoolConst</a>()&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Abstract&nbsp;type&nbsp;for&nbsp;own&nbsp;Boolean&nbsp;values.<br>
+We&nbsp;want&nbsp;the&nbsp;Truth&nbsp;and&nbsp;Falsehood&nbsp;to&nbsp;be&nbsp;of&nbsp;different&nbsp;types.<br>
+We&nbsp;also&nbsp;want&nbsp;to&nbsp;separate&nbsp;from&nbsp;Python's&nbsp;True/False&nbsp;boolean&nbsp;values.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="zad2.html#BoolConst">BoolConst</a></dd>
+<dd><a href="zad2.html#Formula">Formula</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="BoolConst-__eq__"><strong>__eq__</strong></a>(self, other: zad2.Formula) -&gt; bool</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="BoolConst-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="BoolConst-get_variables"><strong>get_variables</strong></a>(self) -&gt; List</dt><dd><tt>Boolean&nbsp;is&nbsp;not&nbsp;a&nbsp;variable.</tt></dd></dl>
+
+<dl><dt><a name="BoolConst-simplify"><strong>simplify</strong></a>(self) -&gt; zad2.Formula</dt><dd><tt>Cannot&nbsp;be&nbsp;simplified&nbsp;further.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'evaluate'})</dl>
+
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+<hr>
+Methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="BoolConst-__add__"><strong>__add__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;+&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∨&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="BoolConst-__invert__"><strong>__invert__</strong></a>(self) -&gt; 'Formula'</dt><dd><tt>~f&nbsp;==&nbsp;¬f</tt></dd></dl>
+
+<dl><dt><a name="BoolConst-__mul__"><strong>__mul__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;*&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∧&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="BoolConst-__rshift__"><strong>__rshift__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;→&nbsp;f2&nbsp;==&nbsp;f1&nbsp;&gt;&gt;&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="BoolConst-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Uses&nbsp;parentheses&nbsp;to&nbsp;signify&nbsp;order&nbsp;of&nbsp;operations&nbsp;following&nbsp;the&nbsp;logic&nbsp;formula&nbsp;decomposition&nbsp;to&nbsp;a&nbsp;binary&nbsp;tree<br>
+(operators&nbsp;are&nbsp;internal&nbsp;nodes,&nbsp;leaves&nbsp;are&nbsp;consts&nbsp;and&nbsp;variables).<br>
+:returns&nbsp;string&nbsp;representation&nbsp;of&nbsp;formula</tt></dd></dl>
+
+<dl><dt><a name="BoolConst-evaluate"><strong>evaluate</strong></a>(self, variables: Dict[str, bool] = {}) -&gt; bool</dt><dd><tt>:returns&nbsp;evaluation&nbsp;of&nbsp;given&nbsp;formula&nbsp;using&nbsp;variables&nbsp;to&nbsp;a&nbsp;boolean&nbsp;value</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="BoolConst-tautology"><strong>tautology</strong></a>(formula: 'Formula') -&gt; str</dt><dd><tt>checks&nbsp;if&nbsp;given&nbsp;formula&nbsp;is&nbsp;a&nbsp;true&nbsp;for&nbsp;all&nbsp;assignments&nbsp;of&nbsp;variables</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DefinitionError">class <strong>DefinitionError</strong></a>(<a href="builtins.html#Exception">builtins.Exception</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#DefinitionError">DefinitionError</a>(val:&nbsp;Union[str,&nbsp;NoneType],&nbsp;message:&nbsp;Union[str,&nbsp;NoneType]&nbsp;=&nbsp;None)<br>
+&nbsp;<br>
+Thrown&nbsp;when&nbsp;variable&nbsp;was&nbsp;not&nbsp;defined&nbsp;before&nbsp;it's&nbsp;usage.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="zad2.html#DefinitionError">DefinitionError</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DefinitionError-__init__"><strong>__init__</strong></a>(self, val: Union[str, NoneType], message: Union[str, NoneType] = None)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Static methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="DefinitionError-__new__"><strong>__new__</strong></a>(*args, **kwargs)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="DefinitionError-__delattr__"><strong>__delattr__</strong></a>(self, name, /)</dt><dd><tt>Implement&nbsp;delattr(self,&nbsp;name).</tt></dd></dl>
+
+<dl><dt><a name="DefinitionError-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><tt>Return&nbsp;getattr(self,&nbsp;name).</tt></dd></dl>
+
+<dl><dt><a name="DefinitionError-__reduce__"><strong>__reduce__</strong></a>(...)</dt><dd><tt>Helper&nbsp;for&nbsp;pickle.</tt></dd></dl>
+
+<dl><dt><a name="DefinitionError-__repr__"><strong>__repr__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<dl><dt><a name="DefinitionError-__setattr__"><strong>__setattr__</strong></a>(self, name, value, /)</dt><dd><tt>Implement&nbsp;setattr(self,&nbsp;name,&nbsp;value).</tt></dd></dl>
+
+<dl><dt><a name="DefinitionError-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="DefinitionError-__str__"><strong>__str__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<dl><dt><a name="DefinitionError-with_traceback"><strong>with_traceback</strong></a>(...)</dt><dd><tt><a href="builtins.html#Exception">Exception</a>.<a href="#DefinitionError-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><tt>exception&nbsp;cause</tt></dd>
+</dl>
+<dl><dt><strong>__context__</strong></dt>
+<dd><tt>exception&nbsp;context</tt></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>__suppress_context__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FalseConst">class <strong>FalseConst</strong></a>(<a href="zad2.html#BoolConst">BoolConst</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#FalseConst">FalseConst</a>()&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Specific&nbsp;type&nbsp;representing&nbsp;false&nbsp;values.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="zad2.html#FalseConst">FalseConst</a></dd>
+<dd><a href="zad2.html#BoolConst">BoolConst</a></dd>
+<dd><a href="zad2.html#Formula">Formula</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FalseConst-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Uses&nbsp;parentheses&nbsp;to&nbsp;signify&nbsp;order&nbsp;of&nbsp;operations&nbsp;following&nbsp;the&nbsp;logic&nbsp;formula&nbsp;decomposition&nbsp;to&nbsp;a&nbsp;binary&nbsp;tree<br>
+(operators&nbsp;are&nbsp;internal&nbsp;nodes,&nbsp;leaves&nbsp;are&nbsp;consts&nbsp;and&nbsp;variables).<br>
+:returns&nbsp;string&nbsp;representation&nbsp;of&nbsp;formula</tt></dd></dl>
+
+<dl><dt><a name="FalseConst-evaluate"><strong>evaluate</strong></a>(self, variables: Dict[str, bool] = None) -&gt; bool</dt><dd><tt>Translate&nbsp;own&nbsp;boolean&nbsp;false&nbsp;to&nbsp;Python's&nbsp;type&nbsp;system.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Methods inherited from <a href="zad2.html#BoolConst">BoolConst</a>:<br>
+<dl><dt><a name="FalseConst-__eq__"><strong>__eq__</strong></a>(self, other: zad2.Formula) -&gt; bool</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="FalseConst-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="FalseConst-get_variables"><strong>get_variables</strong></a>(self) -&gt; List</dt><dd><tt>Boolean&nbsp;is&nbsp;not&nbsp;a&nbsp;variable.</tt></dd></dl>
+
+<dl><dt><a name="FalseConst-simplify"><strong>simplify</strong></a>(self) -&gt; zad2.Formula</dt><dd><tt>Cannot&nbsp;be&nbsp;simplified&nbsp;further.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="zad2.html#BoolConst">BoolConst</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+<hr>
+Methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="FalseConst-__add__"><strong>__add__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;+&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∨&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="FalseConst-__invert__"><strong>__invert__</strong></a>(self) -&gt; 'Formula'</dt><dd><tt>~f&nbsp;==&nbsp;¬f</tt></dd></dl>
+
+<dl><dt><a name="FalseConst-__mul__"><strong>__mul__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;*&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∧&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="FalseConst-__rshift__"><strong>__rshift__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;→&nbsp;f2&nbsp;==&nbsp;f1&nbsp;&gt;&gt;&nbsp;f2</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="FalseConst-tautology"><strong>tautology</strong></a>(formula: 'Formula') -&gt; str</dt><dd><tt>checks&nbsp;if&nbsp;given&nbsp;formula&nbsp;is&nbsp;a&nbsp;true&nbsp;for&nbsp;all&nbsp;assignments&nbsp;of&nbsp;variables</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Formula">class <strong>Formula</strong></a>(<a href="abc.html#ABC">abc.ABC</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Abstract&nbsp;method&nbsp;encompassing&nbsp;all&nbsp;formulas.<br>
+Formulas&nbsp;are&nbsp;defined&nbsp;inductively&nbsp;as&nbsp;either:<br>
+&nbsp;-&nbsp;a&nbsp;variable&nbsp;-&gt;&nbsp;to&nbsp;which&nbsp;we&nbsp;can&nbsp;assign&nbsp;True/False<br>
+&nbsp;-&nbsp;a&nbsp;const&nbsp;-&gt;&nbsp;True/False<br>
+&nbsp;-&nbsp;unary&nbsp;operator&nbsp;applied&nbsp;to&nbsp;1&nbsp;formula<br>
+&nbsp;-&nbsp;binary&nbsp;operator&nbsp;applied&nbsp;to&nbsp;2&nbsp;formulas<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="zad2.html#Formula">Formula</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Formula-__add__"><strong>__add__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;+&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∨&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="Formula-__invert__"><strong>__invert__</strong></a>(self) -&gt; 'Formula'</dt><dd><tt>~f&nbsp;==&nbsp;¬f</tt></dd></dl>
+
+<dl><dt><a name="Formula-__mul__"><strong>__mul__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;*&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∧&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="Formula-__rshift__"><strong>__rshift__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;→&nbsp;f2&nbsp;==&nbsp;f1&nbsp;&gt;&gt;&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="Formula-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Uses&nbsp;parentheses&nbsp;to&nbsp;signify&nbsp;order&nbsp;of&nbsp;operations&nbsp;following&nbsp;the&nbsp;logic&nbsp;formula&nbsp;decomposition&nbsp;to&nbsp;a&nbsp;binary&nbsp;tree<br>
+(operators&nbsp;are&nbsp;internal&nbsp;nodes,&nbsp;leaves&nbsp;are&nbsp;consts&nbsp;and&nbsp;variables).<br>
+:returns&nbsp;string&nbsp;representation&nbsp;of&nbsp;formula</tt></dd></dl>
+
+<dl><dt><a name="Formula-evaluate"><strong>evaluate</strong></a>(self, variables: Dict[str, bool] = {}) -&gt; bool</dt><dd><tt>:returns&nbsp;evaluation&nbsp;of&nbsp;given&nbsp;formula&nbsp;using&nbsp;variables&nbsp;to&nbsp;a&nbsp;boolean&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="Formula-get_variables"><strong>get_variables</strong></a>(self)</dt><dd><tt>:returns&nbsp;a&nbsp;lists&nbsp;of&nbsp;all&nbsp;variables&nbsp;used&nbsp;in&nbsp;a&nbsp;formula</tt></dd></dl>
+
+<dl><dt><a name="Formula-simplify"><strong>simplify</strong></a>(self)</dt><dd><tt>:returns&nbsp;formula&nbsp;simplified&nbsp;by&nbsp;application&nbsp;of&nbsp;logic&nbsp;laws</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Formula-tautology"><strong>tautology</strong></a>(formula: 'Formula') -&gt; str</dt><dd><tt>checks&nbsp;if&nbsp;given&nbsp;formula&nbsp;is&nbsp;a&nbsp;true&nbsp;for&nbsp;all&nbsp;assignments&nbsp;of&nbsp;variables</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset({'evaluate', 'get_variables', 'simplify'})</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Imp">class <strong>Imp</strong></a>(<a href="zad2.html#Binop">Binop</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Imp">Imp</a>(form1:&nbsp;zad2.<a href="#Formula">Formula</a>,&nbsp;form2:&nbsp;zad2.<a href="#Formula">Formula</a>)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Represents&nbsp;typical&nbsp;implication.<br>
+0&nbsp;→&nbsp;1&nbsp;==&nbsp;True<br>
+0&nbsp;→&nbsp;0&nbsp;==&nbsp;True<br>
+1&nbsp;→&nbsp;1&nbsp;==&nbsp;True<br>
+1&nbsp;→&nbsp;0&nbsp;==&nbsp;False<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="zad2.html#Imp">Imp</a></dd>
+<dd><a href="zad2.html#Binop">Binop</a></dd>
+<dd><a href="zad2.html#Formula">Formula</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Imp-evaluate"><strong>evaluate</strong></a>(self, variables: Dict[str, bool] = None) -&gt; bool</dt><dd><tt>using&nbsp;logic&nbsp;rules:&nbsp;a&nbsp;-&gt;&nbsp;b&nbsp;===&nbsp;~a&nbsp;v&nbsp;b<br>
+:param&nbsp;variables:&nbsp;dict&nbsp;of&nbsp;'var&nbsp;name':&nbsp;'var&nbsp;bool&nbsp;value'<br>
+:return:&nbsp;boolean&nbsp;value&nbsp;of&nbsp;evaluated&nbsp;formula</tt></dd></dl>
+
+<dl><dt><a name="Imp-simplify"><strong>simplify</strong></a>(self) -&gt; zad2.Formula</dt><dd><tt>1)&nbsp;If&nbsp;assumption&nbsp;is&nbsp;false&nbsp;then&nbsp;implication&nbsp;always&nbsp;evaluates&nbsp;to&nbsp;truth.<br>
+2)&nbsp;If&nbsp;assumption&nbsp;is&nbsp;true&nbsp;then&nbsp;boolean&nbsp;value&nbsp;of&nbsp;formula&nbsp;depends&nbsp;only&nbsp;on&nbsp;the&nbsp;consequence.<br>
+:return:&nbsp;simplified&nbsp;implication&nbsp;formula</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>symbol</strong> = '→'</dl>
+
+<hr>
+Methods inherited from <a href="zad2.html#Binop">Binop</a>:<br>
+<dl><dt><a name="Imp-__init__"><strong>__init__</strong></a>(self, form1: zad2.Formula, form2: zad2.Formula) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Imp-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Use&nbsp;some&nbsp;evaluation&nbsp;order&nbsp;inference&nbsp;to&nbsp;limit&nbsp;number&nbsp;of&nbsp;'('&nbsp;and&nbsp;')'&nbsp;symbols.<br>
+:return:&nbsp;string&nbsp;representation&nbsp;of&nbsp;formula&nbsp;without&nbsp;too&nbsp;much&nbsp;parentheses</tt></dd></dl>
+
+<dl><dt><a name="Imp-get_variables"><strong>get_variables</strong></a>(self) -&gt; List[str]</dt><dd><tt><a href="#Binop">Binop</a>&nbsp;has&nbsp;two&nbsp;formulas&nbsp;so&nbsp;just&nbsp;recursively&nbsp;concatenate&nbsp;two&nbsp;lists.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="Imp-__add__"><strong>__add__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;+&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∨&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="Imp-__invert__"><strong>__invert__</strong></a>(self) -&gt; 'Formula'</dt><dd><tt>~f&nbsp;==&nbsp;¬f</tt></dd></dl>
+
+<dl><dt><a name="Imp-__mul__"><strong>__mul__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;*&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∧&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="Imp-__rshift__"><strong>__rshift__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;→&nbsp;f2&nbsp;==&nbsp;f1&nbsp;&gt;&gt;&nbsp;f2</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="Imp-tautology"><strong>tautology</strong></a>(formula: 'Formula') -&gt; str</dt><dd><tt>checks&nbsp;if&nbsp;given&nbsp;formula&nbsp;is&nbsp;a&nbsp;true&nbsp;for&nbsp;all&nbsp;assignments&nbsp;of&nbsp;variables</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="MisleadingNameError">class <strong>MisleadingNameError</strong></a>(<a href="builtins.html#Exception">builtins.Exception</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Empty&nbsp;wrapper<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="zad2.html#MisleadingNameError">MisleadingNameError</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="MisleadingNameError-__init__"><strong>__init__</strong></a>(self, /, *args, **kwargs)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="MisleadingNameError-__new__"><strong>__new__</strong></a>(*args, **kwargs)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="MisleadingNameError-__delattr__"><strong>__delattr__</strong></a>(self, name, /)</dt><dd><tt>Implement&nbsp;delattr(self,&nbsp;name).</tt></dd></dl>
+
+<dl><dt><a name="MisleadingNameError-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><tt>Return&nbsp;getattr(self,&nbsp;name).</tt></dd></dl>
+
+<dl><dt><a name="MisleadingNameError-__reduce__"><strong>__reduce__</strong></a>(...)</dt><dd><tt>Helper&nbsp;for&nbsp;pickle.</tt></dd></dl>
+
+<dl><dt><a name="MisleadingNameError-__repr__"><strong>__repr__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<dl><dt><a name="MisleadingNameError-__setattr__"><strong>__setattr__</strong></a>(self, name, value, /)</dt><dd><tt>Implement&nbsp;setattr(self,&nbsp;name,&nbsp;value).</tt></dd></dl>
+
+<dl><dt><a name="MisleadingNameError-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="MisleadingNameError-__str__"><strong>__str__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<dl><dt><a name="MisleadingNameError-with_traceback"><strong>with_traceback</strong></a>(...)</dt><dd><tt><a href="builtins.html#Exception">Exception</a>.<a href="#MisleadingNameError-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><tt>exception&nbsp;cause</tt></dd>
+</dl>
+<dl><dt><strong>__context__</strong></dt>
+<dd><tt>exception&nbsp;context</tt></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>__suppress_context__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Not">class <strong>Not</strong></a>(<a href="zad2.html#Unop">Unop</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Not">Not</a>(formula:&nbsp;zad2.<a href="#Formula">Formula</a>)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Unary&nbsp;operator&nbsp;negating&nbsp;value&nbsp;of&nbsp;encompassed&nbsp;formula.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="zad2.html#Not">Not</a></dd>
+<dd><a href="zad2.html#Unop">Unop</a></dd>
+<dd><a href="zad2.html#Formula">Formula</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Not-evaluate"><strong>evaluate</strong></a>(self, variables: Dict[str, bool] = None) -&gt; bool</dt><dd><tt>Evaluate&nbsp;recursively&nbsp;and&nbsp;then&nbsp;'not'&nbsp;result&nbsp;using&nbsp;Python's&nbsp;logic.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>symbol</strong> = '¬'</dl>
+
+<hr>
+Methods inherited from <a href="zad2.html#Unop">Unop</a>:<br>
+<dl><dt><a name="Not-__init__"><strong>__init__</strong></a>(self, formula: zad2.Formula) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Not-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Uses&nbsp;parentheses&nbsp;to&nbsp;signify&nbsp;order&nbsp;of&nbsp;operations&nbsp;following&nbsp;the&nbsp;logic&nbsp;formula&nbsp;decomposition&nbsp;to&nbsp;a&nbsp;binary&nbsp;tree<br>
+(operators&nbsp;are&nbsp;internal&nbsp;nodes,&nbsp;leaves&nbsp;are&nbsp;consts&nbsp;and&nbsp;variables).<br>
+:returns&nbsp;string&nbsp;representation&nbsp;of&nbsp;formula</tt></dd></dl>
+
+<dl><dt><a name="Not-get_variables"><strong>get_variables</strong></a>(self) -&gt; None</dt><dd><tt>Get&nbsp;variables&nbsp;from&nbsp;underlying&nbsp;formula&nbsp;(in&nbsp;an&nbsp;universal&nbsp;way).</tt></dd></dl>
+
+<dl><dt><a name="Not-simplify"><strong>simplify</strong></a>(self) -&gt; 'Unop'</dt><dd><tt>Cannot&nbsp;simplify&nbsp;unary&nbsp;operation&nbsp;(not&nbsp;knowing&nbsp;which&nbsp;one&nbsp;is&nbsp;it).</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="Not-__add__"><strong>__add__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;+&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∨&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="Not-__invert__"><strong>__invert__</strong></a>(self) -&gt; 'Formula'</dt><dd><tt>~f&nbsp;==&nbsp;¬f</tt></dd></dl>
+
+<dl><dt><a name="Not-__mul__"><strong>__mul__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;*&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∧&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="Not-__rshift__"><strong>__rshift__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;→&nbsp;f2&nbsp;==&nbsp;f1&nbsp;&gt;&gt;&nbsp;f2</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="Not-tautology"><strong>tautology</strong></a>(formula: 'Formula') -&gt; str</dt><dd><tt>checks&nbsp;if&nbsp;given&nbsp;formula&nbsp;is&nbsp;a&nbsp;true&nbsp;for&nbsp;all&nbsp;assignments&nbsp;of&nbsp;variables</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Or">class <strong>Or</strong></a>(<a href="zad2.html#Binop">Binop</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Or">Or</a>(form1,&nbsp;form2)<br>
+&nbsp;<br>
+Represents&nbsp;typical&nbsp;or&nbsp;operator&nbsp;(at&nbsp;least&nbsp;one&nbsp;preposition&nbsp;must&nbsp;be&nbsp;true).<br>
+0&nbsp;∨&nbsp;1&nbsp;==&nbsp;True<br>
+0&nbsp;∨&nbsp;0&nbsp;==&nbsp;False<br>
+1&nbsp;∨&nbsp;1&nbsp;==&nbsp;True<br>
+1&nbsp;∨&nbsp;0&nbsp;==&nbsp;True<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="zad2.html#Or">Or</a></dd>
+<dd><a href="zad2.html#Binop">Binop</a></dd>
+<dd><a href="zad2.html#Formula">Formula</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Or-__init__"><strong>__init__</strong></a>(self, form1, form2)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Or-evaluate"><strong>evaluate</strong></a>(self, variables: Dict[str, bool] = None)</dt><dd><tt>Evaluate&nbsp;both&nbsp;formulas&nbsp;recursively&nbsp;and&nbsp;then&nbsp;use&nbsp;Python's&nbsp;inbuilt&nbsp;or&nbsp;operator.</tt></dd></dl>
+
+<dl><dt><a name="Or-simplify"><strong>simplify</strong></a>(self) -&gt; zad2.Formula</dt><dd><tt>Using&nbsp;two&nbsp;rules&nbsp;(and&nbsp;mirrored&nbsp;versions).<br>
+False&nbsp;∨&nbsp;a&nbsp;==&nbsp;a<br>
+True&nbsp;&nbsp;∨&nbsp;a&nbsp;==&nbsp;True</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>symbol</strong> = '∨'</dl>
+
+<hr>
+Methods inherited from <a href="zad2.html#Binop">Binop</a>:<br>
+<dl><dt><a name="Or-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Use&nbsp;some&nbsp;evaluation&nbsp;order&nbsp;inference&nbsp;to&nbsp;limit&nbsp;number&nbsp;of&nbsp;'('&nbsp;and&nbsp;')'&nbsp;symbols.<br>
+:return:&nbsp;string&nbsp;representation&nbsp;of&nbsp;formula&nbsp;without&nbsp;too&nbsp;much&nbsp;parentheses</tt></dd></dl>
+
+<dl><dt><a name="Or-get_variables"><strong>get_variables</strong></a>(self) -&gt; List[str]</dt><dd><tt><a href="#Binop">Binop</a>&nbsp;has&nbsp;two&nbsp;formulas&nbsp;so&nbsp;just&nbsp;recursively&nbsp;concatenate&nbsp;two&nbsp;lists.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="Or-__add__"><strong>__add__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;+&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∨&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="Or-__invert__"><strong>__invert__</strong></a>(self) -&gt; 'Formula'</dt><dd><tt>~f&nbsp;==&nbsp;¬f</tt></dd></dl>
+
+<dl><dt><a name="Or-__mul__"><strong>__mul__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;*&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∧&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="Or-__rshift__"><strong>__rshift__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;→&nbsp;f2&nbsp;==&nbsp;f1&nbsp;&gt;&gt;&nbsp;f2</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="Or-tautology"><strong>tautology</strong></a>(formula: 'Formula') -&gt; str</dt><dd><tt>checks&nbsp;if&nbsp;given&nbsp;formula&nbsp;is&nbsp;a&nbsp;true&nbsp;for&nbsp;all&nbsp;assignments&nbsp;of&nbsp;variables</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="TrueConst">class <strong>TrueConst</strong></a>(<a href="zad2.html#BoolConst">BoolConst</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#TrueConst">TrueConst</a>()&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Specific&nbsp;type&nbsp;representing&nbsp;true&nbsp;values.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="zad2.html#TrueConst">TrueConst</a></dd>
+<dd><a href="zad2.html#BoolConst">BoolConst</a></dd>
+<dd><a href="zad2.html#Formula">Formula</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="TrueConst-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Uses&nbsp;parentheses&nbsp;to&nbsp;signify&nbsp;order&nbsp;of&nbsp;operations&nbsp;following&nbsp;the&nbsp;logic&nbsp;formula&nbsp;decomposition&nbsp;to&nbsp;a&nbsp;binary&nbsp;tree<br>
+(operators&nbsp;are&nbsp;internal&nbsp;nodes,&nbsp;leaves&nbsp;are&nbsp;consts&nbsp;and&nbsp;variables).<br>
+:returns&nbsp;string&nbsp;representation&nbsp;of&nbsp;formula</tt></dd></dl>
+
+<dl><dt><a name="TrueConst-evaluate"><strong>evaluate</strong></a>(self, variables: Dict[str, bool] = None) -&gt; bool</dt><dd><tt>Translate&nbsp;own&nbsp;boolean&nbsp;true&nbsp;to&nbsp;Python's&nbsp;type&nbsp;system.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Methods inherited from <a href="zad2.html#BoolConst">BoolConst</a>:<br>
+<dl><dt><a name="TrueConst-__eq__"><strong>__eq__</strong></a>(self, other: zad2.Formula) -&gt; bool</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="TrueConst-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="TrueConst-get_variables"><strong>get_variables</strong></a>(self) -&gt; List</dt><dd><tt>Boolean&nbsp;is&nbsp;not&nbsp;a&nbsp;variable.</tt></dd></dl>
+
+<dl><dt><a name="TrueConst-simplify"><strong>simplify</strong></a>(self) -&gt; zad2.Formula</dt><dd><tt>Cannot&nbsp;be&nbsp;simplified&nbsp;further.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="zad2.html#BoolConst">BoolConst</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+<hr>
+Methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="TrueConst-__add__"><strong>__add__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;+&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∨&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="TrueConst-__invert__"><strong>__invert__</strong></a>(self) -&gt; 'Formula'</dt><dd><tt>~f&nbsp;==&nbsp;¬f</tt></dd></dl>
+
+<dl><dt><a name="TrueConst-__mul__"><strong>__mul__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;*&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∧&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="TrueConst-__rshift__"><strong>__rshift__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;→&nbsp;f2&nbsp;==&nbsp;f1&nbsp;&gt;&gt;&nbsp;f2</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="TrueConst-tautology"><strong>tautology</strong></a>(formula: 'Formula') -&gt; str</dt><dd><tt>checks&nbsp;if&nbsp;given&nbsp;formula&nbsp;is&nbsp;a&nbsp;true&nbsp;for&nbsp;all&nbsp;assignments&nbsp;of&nbsp;variables</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Unop">class <strong>Unop</strong></a>(<a href="zad2.html#Formula">Formula</a>, <a href="abc.html#ABC">abc.ABC</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Unop">Unop</a>(formula:&nbsp;zad2.<a href="#Formula">Formula</a>)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Unary&nbsp;operations&nbsp;(e.g.&nbsp;!f)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="zad2.html#Unop">Unop</a></dd>
+<dd><a href="zad2.html#Formula">Formula</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Unop-__init__"><strong>__init__</strong></a>(self, formula: zad2.Formula) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Unop-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Uses&nbsp;parentheses&nbsp;to&nbsp;signify&nbsp;order&nbsp;of&nbsp;operations&nbsp;following&nbsp;the&nbsp;logic&nbsp;formula&nbsp;decomposition&nbsp;to&nbsp;a&nbsp;binary&nbsp;tree<br>
+(operators&nbsp;are&nbsp;internal&nbsp;nodes,&nbsp;leaves&nbsp;are&nbsp;consts&nbsp;and&nbsp;variables).<br>
+:returns&nbsp;string&nbsp;representation&nbsp;of&nbsp;formula</tt></dd></dl>
+
+<dl><dt><a name="Unop-evaluate"><strong>evaluate</strong></a>(self, variables: Dict[str, bool] = None) -&gt; None</dt><dd><tt>Evaluation&nbsp;is&nbsp;not&nbsp;needed&nbsp;in&nbsp;the&nbsp;parent&nbsp;class.</tt></dd></dl>
+
+<dl><dt><a name="Unop-get_variables"><strong>get_variables</strong></a>(self) -&gt; None</dt><dd><tt>Get&nbsp;variables&nbsp;from&nbsp;underlying&nbsp;formula&nbsp;(in&nbsp;an&nbsp;universal&nbsp;way).</tt></dd></dl>
+
+<dl><dt><a name="Unop-simplify"><strong>simplify</strong></a>(self) -&gt; 'Unop'</dt><dd><tt>Cannot&nbsp;simplify&nbsp;unary&nbsp;operation&nbsp;(not&nbsp;knowing&nbsp;which&nbsp;one&nbsp;is&nbsp;it).</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>symbol</strong> = '&lt;default symbol&gt;'</dl>
+
+<hr>
+Methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="Unop-__add__"><strong>__add__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;+&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∨&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="Unop-__invert__"><strong>__invert__</strong></a>(self) -&gt; 'Formula'</dt><dd><tt>~f&nbsp;==&nbsp;¬f</tt></dd></dl>
+
+<dl><dt><a name="Unop-__mul__"><strong>__mul__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;*&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∧&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="Unop-__rshift__"><strong>__rshift__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;→&nbsp;f2&nbsp;==&nbsp;f1&nbsp;&gt;&gt;&nbsp;f2</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="Unop-tautology"><strong>tautology</strong></a>(formula: 'Formula') -&gt; str</dt><dd><tt>checks&nbsp;if&nbsp;given&nbsp;formula&nbsp;is&nbsp;a&nbsp;true&nbsp;for&nbsp;all&nbsp;assignments&nbsp;of&nbsp;variables</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Var">class <strong>Var</strong></a>(<a href="zad2.html#Formula">Formula</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Var">Var</a>(val:&nbsp;str)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Represents&nbsp;a&nbsp;variable&nbsp;with&nbsp;given&nbsp;name.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="zad2.html#Var">Var</a></dd>
+<dd><a href="zad2.html#Formula">Formula</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Var-__init__"><strong>__init__</strong></a>(self, val: str) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Var-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Uses&nbsp;parentheses&nbsp;to&nbsp;signify&nbsp;order&nbsp;of&nbsp;operations&nbsp;following&nbsp;the&nbsp;logic&nbsp;formula&nbsp;decomposition&nbsp;to&nbsp;a&nbsp;binary&nbsp;tree<br>
+(operators&nbsp;are&nbsp;internal&nbsp;nodes,&nbsp;leaves&nbsp;are&nbsp;consts&nbsp;and&nbsp;variables).<br>
+:returns&nbsp;string&nbsp;representation&nbsp;of&nbsp;formula</tt></dd></dl>
+
+<dl><dt><a name="Var-evaluate"><strong>evaluate</strong></a>(self, variables: Dict[str, bool] = None) -&gt; bool</dt><dd><tt>:arg&nbsp;variables:&nbsp;is&nbsp;a&nbsp;dict&nbsp;of&nbsp;variable:boolean&nbsp;pairs</tt></dd></dl>
+
+<dl><dt><a name="Var-get_variables"><strong>get_variables</strong></a>(self) -&gt; List[str]</dt><dd><tt>List&nbsp;of&nbsp;only&nbsp;one&nbsp;variable.</tt></dd></dl>
+
+<dl><dt><a name="Var-simplify"><strong>simplify</strong></a>(self) -&gt; zad2.Formula</dt><dd><tt>Cannot&nbsp;simplify&nbsp;further.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="Var-__add__"><strong>__add__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;+&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∨&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="Var-__invert__"><strong>__invert__</strong></a>(self) -&gt; 'Formula'</dt><dd><tt>~f&nbsp;==&nbsp;¬f</tt></dd></dl>
+
+<dl><dt><a name="Var-__mul__"><strong>__mul__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;*&nbsp;f2&nbsp;==&nbsp;f1&nbsp;∧&nbsp;f2</tt></dd></dl>
+
+<dl><dt><a name="Var-__rshift__"><strong>__rshift__</strong></a>(self, other: 'Formula') -&gt; 'Formula'</dt><dd><tt>f1&nbsp;→&nbsp;f2&nbsp;==&nbsp;f1&nbsp;&gt;&gt;&nbsp;f2</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><a name="Var-tautology"><strong>tautology</strong></a>(formula: 'Formula') -&gt; str</dt><dd><tt>checks&nbsp;if&nbsp;given&nbsp;formula&nbsp;is&nbsp;a&nbsp;true&nbsp;for&nbsp;all&nbsp;assignments&nbsp;of&nbsp;variables</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="zad2.html#Formula">Formula</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-Const"><strong>Const</strong></a>(val: Union[str, bool, int] = None) -&gt; Union[ForwardRef('TrueConst'), ForwardRef('FalseConst')]</dt><dd><tt>Const&nbsp;values&nbsp;are&nbsp;either&nbsp;True&nbsp;or&nbsp;False<br>
+Factory&nbsp;pattern&nbsp;-&gt;&nbsp;Const&nbsp;creates&nbsp;objects&nbsp;of&nbsp;<a href="#TrueConst">TrueConst</a>&nbsp;or&nbsp;<a href="#FalseConst">FalseConst</a>&nbsp;types.<br>
+This&nbsp;makes&nbsp;it&nbsp;easier&nbsp;to&nbsp;differentiate&nbsp;them,&nbsp;with&nbsp;just&nbsp;__eq__&nbsp;method.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Dict</strong> = typing.Dict<br>
+<strong>List</strong> = typing.List<br>
+<strong>Union</strong> = typing.Union</td></tr></table>
+</body></html>

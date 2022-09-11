@@ -1,0 +1,47 @@
+example command stream:
+lines starting with '//' are examples of wrong input handling
+results of applying all commands bellow is attached in starting books.db
+
+HELP:
+python3 zad1.py -> prints help
+python3 zad1.py print -h -> prints more specific information (alternative arguments, required arguments, description etc)
+
+ADDING:
+// python3 zad1.py add_book -t="Henryk Garncarz" -a=J.K 
+// -> (must specify title, author and year!)
+python3 zad1.py add_book -t="Henryk Garncarz" -a=J.K -y=2002
+// python3 zad1.py add_book -title="Hooddaughter Crusoe" --author=D.D --year=1719 --isbn 03939645223 --publisher AMZ 
+// -> (wrong isbn!)
+python3 zad1.py add_book --title="Hooddaughter Crusoe" --author=D.D --year=1719 --isbn 0393964523 --publisher AMZ
+python3 zad1.py add_book --title="Test title" --author=D.X --year=1333 --isbn 0393164527 --publisher ALG
+python3 zad1.py add_book -t "Simple" -a A -y 2000 
+-> only required parameters
+python3 zad1.py print
+
+python3 zad1.py add_friend -n David -e test@mail.com
+// python3 zad1.py add_friend -n Example_Wrong -e test@mail.com 
+// -> (email already exists!)
+// python3 zad1.py add_friend -n Example_Wrong -e testmail.com 
+// -> (wrong mail format)
+python3 zad1.py add_friend --name George --email test2@anothermail.com
+
+PRINTING:
+python3 zad1.py print -t=Book
+python3 zad1.py print -t=Friend
+
+LENDING AND RETURNING:
+python3 zad1.py borrow -bi 1 -fi 1 -> borrow by specyfing book id, friend id pair
+// python3 zad1.py borrow --book_name "Henryk" -fi 1 
+// -> name doesn't exist
+// python3 zad1.py borrow --book_name="Henryk Garncarz" -fi 1 
+// -> book is already borrowed
+python3 zad1.py borrow -bi 2 --friend_email=test@mail.com
+python3 zad1.py print -t Borrow 
+// -> one friend borrows multiple books
+
+python3 zad1.py return -bi 2
+python3 zad1.py print -t Borrow 
+// -> returned book
+python3 zad1.py borrow -bi 2 -fi 2
+python3 zad1.py print -t Borrow 
+// -> book can be borrowed again!
