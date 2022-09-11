@@ -1,0 +1,8 @@
+SRP mówi o odpowiedzialności danej klasy tj. klasa powinna mieć jedną jasną dla programisty odpowiedzialność
+
+ISP mówi o tym, by interfejs nie narzucał użytkownikowi interfejsu implementacji metod, któryfch ten użytkownik nie używa.
+np. interfejs warto podzielić na mniejsze, bardziej szczegółowe
+
+Inaczej SRP skupia się na projektowaniu klas i modułów, a ISP na tym jak są one wykorzystywane.
+
+Można mieć wiele funkcjonalności, łamiąć przy tym ISP, a przestzegając SRP.

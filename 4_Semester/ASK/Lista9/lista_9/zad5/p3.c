@@ -1,1 +1,0 @@
-long array[101];

@@ -1,0 +1,72 @@
+ul.items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul.items li {
+    position: relative;
+    border-bottom: 1px dashed black;
+    display: block;
+    margin: 0px;
+    padding: 10px;
+    height: 200px;
+    color: black;
+    background-color:white;
+}
+
+ul.items li .item-img {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+}
+
+ul.items .item-name {
+    position: absolute;
+    top: 5%;
+    left: 25%;
+    font-size: large;
+    font-weight: bold;
+}
+
+ul.items .item-sale {
+    color: white;
+    background-color: black;
+    padding: 0 5px;
+    position: absolute;
+    top: 10%;
+    left: 90%;
+}
+
+ul.items .item-description {
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    width: 65%;
+    max-height: 40%;
+    overflow:hidden;
+    display:inline-block;
+    text-overflow: ellipsis;
+}
+
+ul.items .item-price {
+    position: absolute;
+    top: 65%;
+    left: 25%;
+}
+
+ul.items button {
+    display: block;
+    position: absolute;
+    background-color: green;
+    border:1px dashed black;
+    margin: 10px 0;
+    top: 75%;
+    left: 25%;
+    color: white;
+}
+
+ul.items button:hover {
+    transition: 1s;
+    border-color: black;
+}

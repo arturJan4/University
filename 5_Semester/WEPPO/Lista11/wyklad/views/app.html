@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    window.addEventListener('load', function () {
+      var bt = document.getElementById('btApp');
+      bt.addEventListener('click', function () {
+        var content = document.getElementById('content');
+        var param = document.getElementById('txtParam');
+        //content.innerHTML = 'nowa zawartość modyfikowana';
+        var req = new XMLHttpRequest();
+        req.open('post', '/ajax', true);
+        req.onreadystatechange = function () {
+          if (req.readyState == XMLHttpRequest.DONE) {
+            content.innerHTML = req.responseText;
+          }
+        }
+        var form = new FormData();
+        form.append('txtParam', param.value);
+        req.send(form);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  kawałek statyczny
+  <div id='content'>
+    stara zawartość
+  </div>
+  <input type='text' id='txtParam'> <br />
+  <button id='btApp'>odśwież zawartość</button>
+</body>
+
+</html>

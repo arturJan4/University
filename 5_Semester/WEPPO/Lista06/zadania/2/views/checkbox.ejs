@@ -1,0 +1,16 @@
+<div id="checkbox-ejs">
+  <% checkboxes.forEach( (checkbox, index)=> { %>
+    <div>
+      <input type="checkbox" 
+            id="<%= checkbox.id %>" 
+            name="<%= checkbox.name %>" 
+        <% if (index === 0) {%>
+          <%= "checked" %>
+        <% } %>
+      >
+      <label for="<%= checkbox.name %>">
+        <%= checkbox.text %>
+      </label>
+    </div>
+  <% }) %>
+</div>

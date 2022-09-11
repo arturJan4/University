@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js"></script>
+    <title>Form</title>
+</head>
+<body>
+  <form id="mainForm">
+    <label>Marka:
+      <select name="marka" id="cars"></select>
+    </label>
+    <label>Model:
+      <select name="model" id="carsModel"></select>
+    </label>
+    <label>Nowa pozycja:
+      <input type="text" id="newPosition" name="nowa">
+    </label>
+    <h2>Chcę dodać:</h2>
+      <label for="markaRadio">Marka</label>
+      <input type="radio" name="rodzaj" id="markaRadio" value="marka" checked="checked">
+      <label for="modelRadio">Model</label>
+      <input type="radio" name="rodzaj" id="modelRadio" value="model">
+    <button type="button" id="dodaj">Dodaj pozycję</button>
+    <input type="reset">
+  </form>   
+</body>
+</html>

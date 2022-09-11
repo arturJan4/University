@@ -1,0 +1,156 @@
+Lista 3, zadanie 3 - dowody
+Autorzy: Artur Jankowski i Dominik Danelski
+
+W poniższych dowodach będziemy korzystać z pewnych podstawowych własności list udowodnionych na ćwiczeniach. Na przykład, że (list? x) ^ (list? y) => (list? (append x y)), (append null xs) ≡ xs itp.
+
+Podpunkt pierwszy: (map f (append xs ys))
+
+Definicja funkcji map z wykładu:
+
+(define (map f xs)
+  (if (null? xs)
+      null
+      (cons (f (car xs))
+            (map f (cdr xs)))))
+     
+Pokażemy prawdziwość własności P definiowanej dla dowolnej listy xs w następujący sposób:
+TEZA: P(xs) := ∀xs  ∀ys (list? xs) ∧ (list? ys) ⇒ (map f (append xs ys)) ≡ (append (map f xs) (map f ys))
+
+Zakładamy, że (list? xs)=#t i (list? ys)=#t, czyli xs i ys są listami.
+Pokażemy, że (map f (append xs ys)) ≡ (append (map f xs) (map f ys)).
+
+W dowodzie wykorzystamy zasadę indukcji strukturalnej dla list.
+Indukcja będzie względem xs: 
+1) Baza indukcji: pokażemy, że P(null) zachodzi
+Załóżmy, że xs = null
+L = (map f (append null ys)) ≡ //Z definicji funkcji append: (append null xs) ≡ xs
+    (map f ys)
+P = (append (map f xs) (map f ys)) ≡
+    (append (map f null) (map f ys)) ≡ //Z definicji funkcji map: (map f null) ≡ null
+    (append null (map f ys)) ≡
+    (map f ys)
+L = P, zatem P(null) zachodzi.
+
+2) Pokażemy, że dla dowolnej listy xs i dowolnego x, takiego że (list? x), prawdziwe jest P(xs) => P((cons x xs))
+
+Założenie P(xs): Weźmy dowolne xs, takie że (map f (append xs ys)) ≡ (append (map f xs) (map f ys))
+
+Pokażemy, że (map f (append (cons x xs) ys)) ≡ (append (map f (cons x xs)) (map f ys)) dla dowolnego x
+
+L = (map f (append (cons x xs) ys)) ≡
+//Korzystamy wprost z właściwości car, cdr, cons i append. (car (cons x xs)) ≡ x natomiast (append (cdr (cons x xs)) ys) tworzy listę złożoną z xs i ys. Łączący je cons tworzy listę x xs ys analogicznie jak lewa strona równoważności.
+    (map f (cons (car (cons x xs))
+            (append (cdr (cons x xs)) ys)) ≡
+    (map f (cons x (append xs ys)) ≡
+//Wynika to wprost z definicji funkcji map przyjmującej listę, której x jest pierwszym elementem, a (append xs ys) kolejnymi. Wynikiem działania funkcji jest lista i dlatego wynik działania f na pierwszym elemencie jest połączony z kolejnymi funkcją cons.
+    (cons (f (car (cons x (append xs ys)))
+          (map f (cdr (cons x (append xs ys)))))) ≡
+    (cons (f x) (map f (append xs ys))) ≡ // Korzystamy wprost z założenia indukcyjnego
+    (cons (f x) (append (map f xs) (map f ys)))
+    
+P = (append (map f (cons x xs)) (map f ys)) ≡ //Korzystamy z przytoczonych już własności funkcji map, car, cdr i cons
+    (append (cons (f (car (cons x xs))) 
+                  (map f (cdr (cons x xs)))) 
+            (map f ys)) ≡
+    (append (cons (f x) 
+                  (map f xs)) 
+            (map f ys)) ≡
+    (cons (car (cons (f x) (map f xs)))
+          (append (cdr (cons (f x) (map f xs))) 
+                  (map f ys))) ≡
+    (cons (f x) (append (map f xs) (map f ys)))
+
+L = P, czyli P((cons x xs)) zachodzi.
+
+Zatem na mocy indukcji strukturalnej, dla dowolnego xs, ys jeśli zachodzi (list? xs) i (list? ys) to zachodzi też P(xs),
+czyli (append xs ys)) ≡ (append (map f xs) (map f ys)).
+C.K.D
+
+==========================================
+
+Podpunkt drugi: (filter p? (append xs ys))
+
+Definicja funkcji filter z wykładu:
+
+(define (filter p? xs)
+  (if (null? xs)
+      null
+      (if (p? (car xs))
+          (cons (car xs)
+                (filter p? (cdr xs)))
+          (filter p? (cdr xs)))))
+
+Pokażemy prawdziwość własności P definiowanej dla dowolnej listy xs w następujący sposób:
+TEZA: P(xs) := ∀xs  ∀ys (list? xs) ∧ (list? ys) ⇒ (filter p? (append xs ys)) = (append (filter p? xs) (filter p? ys))
+
+Zakładamy, że (list? xs)=#t i (list? ys)=#t, czyli xs i ys są listami.
+
+Dowód:
+Pokażemy, że (filter p? (append (cons x xs) ys)) = (append (filter p? (cons x xs)) (filter p? ys))
+
+W dowodzie wykorzystamy zasadę indukcji strukturalnej dla list.
+Indukcja będzie względem xs: pokażemy, że P(null) zachodzi
+1) xs = null
+L = (filter p? (append null ys)) ≡ //Z definicji append wynika, że (append null x) = x
+    (filter p? ys)
+
+P = (append (filter p? null) (filter p? ys)) ≡ //Z definicji filter: (filter p? null) = null
+    (append null (filter p? ys)) ≡
+    (filter p? ys)
+L=P. Zatem P(null) zachodzi.
+
+2) Krok indukcyjny: pokażemy prawdziwość implikacji P(xs)=>P((cons x xs)) dla dowolnego elementu x, takiego że (list? x) i listy xs.
+
+Weźmy dowolne x i xs takie że (filter p? (append xs ys)) = (append (filter p? xs) (filter p? ys)) Jest to założenie indukcyjne. Wynika z niego wprost, że elementy listy xs mogą być argumentami predykatu p?, ponieważ (filter p? xs) jest z założenia poprawnym wyrażeniem.
+
+L = (filter p? (append (cons x xs) ys)) ≡
+//Z definicji list oraz funkcji append, cons i car wynika, że efektem działania lewej strony równoważności jest utworzenie listy (x xs ys),
+ natomiast prawa strona równoważności wiąże funkcją cons element (car (cons x)) = x oraz przyłącza ys do (cdr (cons x xs)) = xs, więc efektem działania jest lista (x xs ys).
+    (filter p? (cons (car (cons x xs))
+                     (append (cdr (cons x xs) ys)))) ≡
+    (filter p? (cons x (append xs ys))))
+//Z definicji funkcji filter, cons i append wynika, że efektem działania podanego wyrażenia jest lista utworzona z kolejnych wyrażeń (p? e) gdzie e to kolejne elementy listy, której pierwszym elementem jest x, a kolejnymi elementy listy (append xs ys)
+    
+    (if (p? (car x)) = ? Rozważmy dwa przypadki:
+    1)(if (p? (car x))) = #t
+       (filter p? (cons x (append xs ys)))) ≡
+       (cons (car (cons x (append xs ys)))
+                (filter p? (cdr (cons x (append xs ys))))) ≡
+       (cons x (filter p? (append xs ys))) ≡ //Wprost z założenia indukcyjnego
+       (cons x (append (filter p? xs) (filter p? ys)))
+       
+    2)(if (p? (car x))) = #f
+       (filter p? (cons x (append xs ys)))) ≡
+       (filter p? (cdr (cons x (append xs ys)))) ≡
+       (filter p? (append xs ys)) ≡ //zal ind.
+       (append (filter p? xs) (filter p? ys))
+    
+P = (append (filter p? (cons x xs)) (filter p? ys))
+    
+    (if (p? (car x)) = ? Rozważmy dwa przypadki:
+    
+    1)(if (p? (car x))) = #t
+        (append (filter p? (cons x xs)) (filter p? ys)) ≡
+        (append (cons (car (cons x xs))
+                  (filter p? (cdr (cons x xs)))) 
+            (filter p? ys) ≡
+        (append (cons x (filter p? xs)) (filter p? ys)) ≡ //Przejście wynikające z przytoczonych już zależności między append, cons a car i cdr oraz własności list
+        (cons (car (cons x (filter p? xs)))
+            (append (cdr (cons x (filter p? xs))) (filter p? ys))) ≡
+        (cons x (append (filter p? xs) (filter p? ys)))
+        L = P
+        
+    2)(if (p? (car x))) = #f
+        (append (filter p? (cons x xs)) ≡ (filter p? ys))
+        (append (filter p? (cdr (cons x xs))) (filter p? ys)) ≡
+        (append (filter p? xs) (filter p? ys))    
+        L = P
+        
+Dla obu przypadków L = P, czyli P((cons x xs)) zachodzi.
+
+Zatem na mocy indukcji strukturalnej, dla dowolnego xs, ys, jeśli zachodzi (list? xs) i (list? ys) to zachodzi też P(xs), 
+czyli (filter p? (append xs ys)) = (append (filter p? xs) (filter p? ys)) 
+C.K.D
+
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deklaracje</title>
+</head>
+
+<body>
+  <form method="POST">
+    Wypełnij deklarację!
+    <div style="width: 100%; display: table;">
+      <div style="display: table-row">
+        <div style="width: 200px; display: table-cell;">Imię: </div>
+        <input type='text' name='name' value='<%= name %>' />
+      </div>
+      <div style="display: table-row">
+        <div style="width: 200px; display: table-cell;">Nazwisko: </div>
+        <input type='text' name='surname' value='<%= surname %>' />
+      </div>
+      <div style="display: table-row">
+        <div style="width: 200px; display: table-cell;">Przedmiot: </div>
+        <input type='text' name='subject_name' value='<%= subject_name %>' />
+      </div>
+      <div style="display: table-row">
+        <div style="width: 200px; display: table-cell;">Grupa: </div>
+        <input type='text' name='subject_group' value='<%= subject_group %>' />
+      </div>
+      <div style="display: table-row">
+        <div style="width: 200px; display: table-cell;">Data: </div>
+        <input type='text' name='date' value='<%= date %>' />
+      </div>
+      <% for ( let i=0; i<10; i++ ) { 
+        k = i + 1;
+      %>
+        <div style="display: table-row">
+          <div style="width: 200px; display: table-cell;">Zadanie <%= k %>:</div>
+          <input type='number' min='0' name="points" value="<%=points[i]%>">
+        </div>
+      <% } %>
+      <button>Send</button>
+      <% if (locals.err_fill_msg) { %>
+        <div style="color:darkred">
+          <%= err_fill_msg %>
+        </div>
+       <% } %>
+    </div>
+  </form>
+</body>
+
+</html>

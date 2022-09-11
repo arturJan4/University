@@ -1,0 +1,40 @@
+// PSEUDOKOD
+// odpowiedź na pytanie z zadania:
+// Nie da się napisać jednoznacznego kodu ze względu na brak szczegółów implementacyjnych (np. typy)
+					
+public class UsosWebPage {
+  GradeController gradeCtr;
+  Grade grade;
+  PageLayout pageLayout;
+	
+  public void show(Student student) {
+    pageLayout = gradeCtr.getStudentGradeInfo(student);
+    // do sth to show pageLayout
+  }
+}
+
+public class GradeController {
+  public PageLayout getStudentGradeInfo(Student student) {
+	  
+    for (course in student.getCourses()) {
+      mark = course.getMark(student);
+    }
+	  
+    // build pageLayout
+    return pageLayout
+  }
+}
+
+public class Student {
+  UsosWebPage usos;
+
+  public void show() {
+    usos.show(this);
+  }
+}
+
+public class Course {
+  public void getCourses() {
+  //
+  }
+}

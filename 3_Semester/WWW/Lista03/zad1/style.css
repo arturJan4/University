@@ -1,0 +1,21 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+#mainForm *{
+    display: block;
+    margin: 0.2rem 0;
+}
+
+#mainForm label{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#mainForm input{
+    border-width: 0.2rem;
+    border-style: solid;
+}

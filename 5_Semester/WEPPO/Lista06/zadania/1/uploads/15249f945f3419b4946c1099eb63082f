@@ -1,0 +1,59 @@
+## 1 podejście
+### Implicit_list (length)
+mm_implicit + csapp (examples + task solutions)
+
+#### alignment
+we assume payload is aligned to 16 bytes
+
+block size - multiple of 16
+pointer - 8 bajtów (ale może da się 4? TODO)
+
+word size - 8 bytes
+minimal block size - 16
+
+#### boundary tags
+TODO: how many bytes for those?
+TODO: do those need padding?
+
+optimized - meaning: 
+needed only for free blocks
+
+a == allocated (lower bit trick) / free
+b == previous allocated / previous free
+
+when block is allocated:
+a bit is set to 1
+we don't have to check b-bit
+rest is size of block (block + payload + optional padding) - header is needed
+
+for unallocated blocks:
+a bit is set to 0
+we have both header and footer
+TODO: are they the same?
+
+#### find policy
+first-fit (choose first block that fits)
++ splitting
+
+#### free
+freeing: clear allocated flag -> obvious
+
+4 cases (always check next block and previous block):
+prev = 1 & next = 1 -> don't coalescence
+prev = 1 & next = 0 -> coalescence with next
+prev = 0 & next = 1 -> coalescence with prev
+prev = 0 & next = 0 -> coalescence with both 
+-> this works because of invariant
+-> no two free blocks along each other
+
+#### special cases
+coalesicing for first/last element
+
+introducing prologue/epilogue tags
+-> TODO: what kind of lower bits do they need to not break freeing etc.?
+
+#### design choices
+whether to use boundary tag or block ptr as main -> have to be clear about it
+payload size != block size
+
+

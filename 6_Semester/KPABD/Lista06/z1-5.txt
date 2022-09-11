@@ -1,0 +1,291 @@
+z1:
+wersja lokalna
+*:\Program Files\MongoDB\Server\5.0\bin
+
+mamy:
+mongo.exe -> client
+mongod.exe -> mongo daemon
+mongosh -> mongo shell
+
+show dbs -> pokazuje dostępne bazy
+use test -> użyj db test
+
+help
+
+use new -> tworzy nową
+show dbs
+db.books.insert({"name":"test"})
+show collections -> pokazuje dostępne kolekcje
+
+lub mongodb as a windows service
+z2:
+use z2
+
+Ksiazka zawiera egzamplerze
+Czytelnik zawiera wypozyczenia
+
+db.Ksiazki.insertMany([{
+    "_id": 1,
+    "ISBN": "83-246-0279-8",
+    "Tytul": "Microsoft Access. Podręcznik administratora",
+    "Autor": "Helen Feddema",
+    "RokWydania": 2006,
+    "Cena": 69,
+    "Egzemplarze": [
+        {
+            "Sygnatura": "S0003",
+        },
+        {
+            "Sygnatura": "S0004",
+        }
+    ]
+},
+{
+    "_id": 2,
+    "ISBN": "83-246-0653-X",
+    "Tytul": "SQL Server 2005. Programowanie. Od podstaw",
+    "Autor": "Robert Vieira",
+    "RokWydania": 2007,
+    "Cena": 97,
+    "Egzemplarze": [
+        {
+            "Sygnatura": "S0006",
+        }
+    ]
+}])
+
+db.Czytelnicy.insertMany([{
+    "_id": 1,
+    "PESEL": "55101011111",
+    "Nazwisko": "Kowalski",
+    "Miasto": "Wrocław",
+    "DataUrodzenia": new Date("1955-10-10"),
+    "OstatnieWypozyczenie": new Date("2020-02-01"),
+    "Wypozyczenia": [
+        {   
+            Sygnatura: "S0003",
+            Data: new Date("2020-02-02"),
+            LiczbaDni: 12
+        },
+        {   
+            Sygnatura: "S0006",
+            Data: new Date("2019-12-01"),
+            LiczbaDni: 24
+        }
+    ]
+},
+{
+    "_id": 2,
+    "PESEL": "60101033333",
+    "Nazwisko": "Maliniak",
+    "Miasto": "Wrocław",
+    "DataUrodzenia": new Date("1960-10-10"),
+    "OstatnieWypozyczenie": new Date("2021-02-05"),
+    "Wypozyczenia": [
+        {   
+            Sygnatura: "S0003",
+            Data: new Date("2021-02-05"),
+            LiczbaDni: 14
+        },
+        {   
+            Sygnatura: "S0004",
+            Data: new Date("2019-12-15"),
+            LiczbaDni: 28
+        }
+    ]
+}
+])
+
+db.Ksiazki.find()
+db.Czytelnicy.find()
+
+z3:
+db.runCommand( {
+   collMod: "Ksiazki",
+   validator: { $jsonSchema: {
+      bsonType: "object",
+      required: [ "ISBN", "Tytul", "Autor", "RokWydania" ],
+      properties: {
+		 ISBN: {
+			bsonType: "string",
+            description: "is required and must be string"
+		 },
+         Tytul: {
+            bsonType: "string",
+            description: "is required and must be string"
+         },
+         Autor: {
+            bsonType: "string",
+            description: "is required and must be string"
+         },
+         RokWydania: {
+            bsonType: "int",
+			minimum: 0,
+			maximum: 2100,
+            description: "is required and must be INT"
+         },
+         Egzemplarze: {
+             bsonType: ["array"],
+             minItems: 0,
+             uniqueItems: true,
+             items: {
+                bsonType: ["object"],
+                required: ["Sygnatura"],
+                properties: {
+					Sygnatura: {
+					bsonType: "string",
+					pattern : "@S\\d{4,}$",
+					description: "is required and must be string and match regular expression"
+                    }
+                }
+			}
+		}
+	}
+}}})
+
+db.runCommand(
+{
+    collMod: "Czytelnicy",
+    validator: { $jsonSchema: {
+        bsonType: "object",
+        required: ["PESEL", "Nazwisko", "Miasto", "DataUrodzenia"],
+        properties: {
+            PESEL: {
+                bsonType: "string",
+                pattern: "^[0-9]{11}$",
+				description: "is required and must be string and match regular expression"
+            },
+            Nazwisko: {
+                bsonType: "string",
+                description: "is required and must be string"
+            },
+            Miasto: {
+                bsonType: "string",
+                description: "is required and must be string"
+            },
+            DataUrodzenia: {
+                bsonType: "date",
+                description: "is required and must be date"
+            },
+            OstatnieWypozyczenie: {
+                bsonType: "date",
+                description: "is not required and must be date"
+            },
+            Wypozyczenia:{
+                bsonType: "array",
+                minItems: 0,
+                uniqueItems: true,
+                items: {
+                    bsonType: ["object"],
+                    required: ["Sygnatura", "Data", "LiczbaDni"],
+                    properties: {
+                        Sygnatura: {
+                            bsonType: "string"
+                        },
+                        Data: {
+                            bsonType: "date"
+                        },
+                        LiczbaDni: {
+                            bsonType: "int"
+                        }
+                    }
+                }
+            }
+        }
+    }}
+})
+
+db.[Collection].validate()
+
+db.Ksiazki.update(
+{_id:1},
+{$set: { "Egzemplarze.0.Sygnatura": "SKKK1"}}
+)
+
+z4:
+use z4
+
+db.Dokumenty.insertMany([{
+    "_id": 1,
+    "Tytul": "Microsoft Access. Podręcznik administratora",
+    "Egzemplarze": [
+        {
+            "Sygnatura": "S0003",
+        },
+        {
+            "Sygnatura": "S0004",
+        }
+    ]
+},
+{
+    "_id": 2,
+    "Tytul": "SQL Server 2005. Programowanie. Od podstaw",
+    "Egzemplarze": [
+        {
+            "Sygnatura": "S0006",
+        }
+    ]
+},
+{
+    "_id": 3,
+    "Tytul": "T3",
+    "Egzemplarze": [ {"Sygnatura": "S0003"}, {"Sygnatura": "S0014"}, {"Sygnatura": "S0016"}]
+},
+{
+    "_id": 4,
+    "Tytul": "S4",
+    "Egzemplarze": [ {"Sygnatura": "S0023"}, {"Sygnatura": "S0034"}, {"Sygnatura": "S0016"}]
+},
+{
+    "_id": 5,
+    "Tytul": "DD5",
+    "Egzemplarze": [ {"Sygnatura": "S0404"}, {"Sygnatura": "S0024"}, {"Sygnatura": "S0016"}]
+},
+])
+
+db.Dokumenty.find()
+db.Dokumenty.find().sort("Tytul")
+db.Dokumenty.find().sort({"Tytul":-1})
+
+// pomijamy połowę (-1) i bierzemy 2 strony
+db.Dokumenty.find().sort("Tytul").skip(db.Dokumenty.countDocuments()/2).limit(2) 
+// dokumenty które zawierają egzamplerze o jednej z pierwszych pięciu sygnatur
+db.Dokumenty.find({"Egzemplarze.Sygnatura": { $regex: /^S000[0-5]/ }})    
+
+z5:
+5 shells open:
+
+.\mongod --dbpath D:\data\db1 --port 10000 --replSet "demo"
+
+.\mongod --dbpath D:\data\db2 --port 20000 --replSet "demo"
+
+.\mongod --dbpath D:\data\db3 --port 30000 --replSet "demo"
+
+.\mongo --port 10000
+var rsConfig={ _id: "demo", members: [{_id: 0, host:
+'localhost:10000', priority: 10}, {_id: 1, host:
+'localhost:20000'}, {_id: 2, host: 'localhost:30000',
+arbiterOnly: true}]};
+
+rsConfig
+rs.initiate(rsConfig)
+
+db.books.save({_id:1, title:"Mistrz i Małgorzata"})
+db.books.find()
+
+.\mongo --port 20000
+db.books.save({_id:2, title:"Wyznania gejszy"})
+db.books.find();
+db.setSecondaryOk();
+db.books.find();
+
+kill primary
+check secondary
+
+resurrect primary:
+.\mongod --dbpath D:\data\db1 --port 10000 --replSet "demo"
+
+check again
+
+
+

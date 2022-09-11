@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_widget(form) }}
+{{ form_end(form) }}
+
+{% if data|length > 0 %}
+<p>Wysłane: {{ data.firstname }} {{ data.lastname }}</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/site.css') }}" type="text/css" />
+    </head>
+
+    <body>
+
+        <div id="header">{% block header %}{{ header }}{% endblock %}</div>
+
+        <div id="content">
+        {% block menu %}{% include('_shared/menu.html.twig') %}{% endblock %}    
+        {% block content %}{% endblock %}
+        </div>
+
+        <div id="footer">{% block footer %}{{ footer }}{% endblock %}</div>
+
+    </body>
+</html>

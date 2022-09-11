@@ -1,0 +1,9 @@
+Analiza SRP:
+? ReportPrinter pobiera dane sam
+? ReportPrinter formatuje dokument sam
++ ReportPrinter printuje dokument sam
+
+widzimy dwie metody, które wynikają z odpowiedzialności nie odpowiednich dla printera
+
+Docelowo powstaną 3 klasy, dlatego że formatowanie i pobieranie to także raczej osobne odpowiedzialności.
+Refaktoryzacja SRP nie oznacza, że każda metoda powinna trafić do osobnej klasy, do jednej klasy powinny trafić metody o tej samej odpowiedzialności.

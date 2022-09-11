@@ -1,3 +1,0 @@
-head -> title
-head -> scripts -> link
-inspect element

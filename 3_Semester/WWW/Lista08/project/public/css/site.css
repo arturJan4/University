@@ -1,0 +1,5 @@
+#header { float: left; clear: both; width:600px; height: 70px; border: solid 1px red; }
+#content { float: left; clear: both; width:600px; height: 400px; border: solid 1px blue; }
+#footer { float: left; clear: both; width:600px; height: 30px; border: solid 1px green; }
+.error ul { margin: 0; color: red; padding:0 }
+.error ul li { list-style: none; }

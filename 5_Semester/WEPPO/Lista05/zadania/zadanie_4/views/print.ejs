@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width='device-width', initial-scale=1.0">
+  <title>Wynik deklaracji</title>
+</head>
+
+<style type="text/css">
+  .tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  .tg td {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 9px 9px;
+    word-break: normal;
+  }
+
+  .tg th {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    overflow: hidden;
+    padding: 9px 9px;
+    word-break: normal;
+  }
+
+  .tg .tg-cey4 {
+    border-color: inherit;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: middle
+  }
+
+  .tg .tg-34fe {
+    background-color: #c0c0c0;
+    border-color: inherit;
+    text-align: center;
+    vertical-align: middle
+  }
+
+  .tg .tg-8jgo {
+    border-color: #ffffff;
+    text-align: center;
+    vertical-align: middle;
+  }
+</style>
+
+<body>
+  <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-34fe" colspan="2">Przedmiot:<br></th>
+        <th class="tg-cey4" colspan="3"><%= subject_name %> </th>
+        <th class="tg-34fe" colspan="4">Imię i nazwisko:</th>
+        <th class="tg-cey4" colspan="3"><%= name + " " + surname %> </th>
+        <th class="tg-34fe">Grupa:<br></th>
+        <th class="tg-cey4" colspan="2"><%= subject_group %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-34fe">Zadanie:</td>
+        <td class="tg-cey4">1</td>
+        <td class="tg-cey4">2</td>
+        <td class="tg-cey4">3</td>
+        <td class="tg-cey4">4</td>
+        <td class="tg-cey4">5</td>
+        <td class="tg-cey4">6</td>
+        <td class="tg-cey4">7</td>
+        <td class="tg-cey4">8</td>
+        <td class="tg-cey4">9</td>
+        <td class="tg-cey4">10</td>
+        <td class="tg-34fe">Data:</td>
+        <td class="tg-cey4" colspan="3">20.12.2021</td>
+      </tr>
+      <tr>
+        <td class="tg-34fe">Punkty:</td>
+        <% for ( let i=0; i<10; i++ ) { %>
+          <td class="tg-cey4"> <%= points[i] %> </td>
+        <% } %>
+        <td class="tg-34fe">Suma:</td>
+        <td class="tg-cey4" colspan="3"> <%= sum_points %> </td>
+      </tr>
+      <tr>
+        <td class="tg-8jgo" colspan="15">Wypełniać czytelnie i bez skreśleń drukowanymi literami.<br></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>

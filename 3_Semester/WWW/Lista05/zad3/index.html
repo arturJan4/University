@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsFeed</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="JQscripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.js" integrity="sha512-lVOhRiSNKsseQXm0MgoEOV7efl7ET2+iBw5tRgKsX2BPA2LlkW2WUCsSYVwrrujEsbqNf+tN70z5pEnpnUtqUg==" crossorigin="anonymous"></script>
+<body>
+    <ul id="news">
+        <!-- 
+        <li class="news-item">
+            <div class="news-item-title">test1</div>
+            <div class="news-item-description"> 
+                <img src="https://via.placeholder.com/150" alt="test">  
+                Przykładowy opis ze zdjęciem
+            </div>
+            <div class="news-item-links">tu linki</div>
+        </li>
+        -->
+    </ul>
+    
+    <script id="news-item-temp" type="text/template">
+        {{#.}}
+        <li class="news-item">
+                <div class="news-item-title">{{title}}</div>
+                <div class="news-item-description">{{{description.__cdata}}}</div>
+                <a href={{link}}><div class="news-item-links">{{link}}</div></a>
+        </li>
+        {{/.}}
+    </script>
+</body>
+</html>

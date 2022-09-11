@@ -1,0 +1,103 @@
+## 1
+start + open
+```
+Match (n:Movie)
+Return n
+
+MATCH (n) RETURN (n);
+```
+
+## 2
+• dodaj 2 nowych aktorów i 2 nowe filmy,
+```
+można dodać return p dla tagu p:Person
+
+CREATE (:Person { name: "Cezary Pazura", born: "23.09.1962" })
+CREATE (:Person { name: "Piotr Fronczewski", born: "1946" })
+
+CREATE (:Movie { title: "Trzy kolory", released: "1994" })
+CREATE (:Movie { title: "Billboard", released: "1998" })
+```
+• dodaj 2 nowe properties do wybranego filmu
+```
+MATCH (m:Movie { title: "Trzy kolory"})
+SET m.director = "Krzysztof Kieślowski"
+RETURN m;
+
+MATCH (m:Movie { title: "Trzy kolory"})
+SET m.genre = "Comedy-drama"
+RETURN m;
+```
+• dodaj 2 nowe związki acted in,
+```
+MATCH (p:Person), (m:Movie)
+WHERE p.name = 'Cezary Pazura' AND m.title = 'Trzy kolory'
+CREATE (p)-[r:ACTED_IN]->(m)
+RETURN r;
+
+MATCH (p:Person), (m:Movie)
+WHERE p.name = 'Piotr Fronczewski' AND m.title = 'Billboard'
+CREATE (p)-[r:ACTED_IN]->(m)
+RETURN r;
+```
+
+`Match (m: Movie {title: 'Billboard'}) Return m` -> pokaż resztę
+
+• zaktualizuj property w wybranym filmie,
+```
+MATCH (m:Movie {title: "Trzy kolory"})
+SET m.genre = "drama"
+Return m;
+```
+
+• usuń 1 związek acted in
+```
+MATCH (p:Person {name: "Cezary Pazura"})-[r:ACTED_IN]-(:Movie)
+DELETE r
+Return p;
+```
+## 3
+• zwrócić filmy, których grał wybrany aktor,
+```
+MATCH (p:Person)-[:ACTED_IN]->(m:Movie)
+WHERE p.name = "Christian Bale"
+Return m;
+```
+• zwrócić filmy, gdzie wybrana osoba była producentem i reżyserem,
+```
+MATCH (p:Person)-[:PRODUCED]->(m:Movie),
+      (p)-[:DIRECTED]->(m)
+WHERE p.name = "Rob Reiner"
+Return m;
+```
+
+lub:
+```
+MATCH (p:Person)-[:PRODUCED]->(m:Movie)<-[:DIRECTED]-(p)
+WHERE p.name = "Rob Reiner"
+Return m;
+```
+
+• zwrócić aktora, który nie grał w żadnych filmie,
+```
+MATCH (p:Person)
+WHERE NOT (p)-[:ACTED_IN]->(:Movie)
+Return p;
+//LIMIT 1
+```
+• zwrócić aktora, który grał w więcej niż 3 filmach,
+```
+MATCH (p:Person)-[:ACTED_IN]->(m:Movie)
+WITH  p, count(m) AS numMovies
+WHERE numMovies >= 3
+RETURN p;
+// LIMIT 1
+```
+
+tablicowo:
+```
+MATCH (p:Person)-[:ACTED_IN]->(m:Movie)
+WITH  p, count(m) AS numMovies, collect(m.title) AS movies
+WHERE numMovies >= 3
+RETURN p.name, movies;
+```

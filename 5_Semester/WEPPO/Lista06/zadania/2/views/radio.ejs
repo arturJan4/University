@@ -1,0 +1,17 @@
+<div id="radio-ejs">
+  <% options.forEach( (option, index)=> { %>
+    <div>
+      <input type="radio" 
+            id="<%= option.id %>" 
+            name="<%= name %>" 
+            value="<%= option.value %>"
+        <% if (index === 0) {%>
+          <%= "checked" %>
+        <% } %>
+      >
+      <label for="<%= option.value %>">
+        <%= option.text %>
+      </label>
+    </div>
+  <% }) %>
+</div>

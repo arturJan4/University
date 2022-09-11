@@ -1,0 +1,5 @@
+some data
+second line
+third line
+\n żźćą„”łę©©≠²³»¢²≠³ć„łżśąð
+42

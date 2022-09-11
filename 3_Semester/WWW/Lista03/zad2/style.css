@@ -1,0 +1,36 @@
+#mainForm label{
+  margin: 0.2rem 0;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+
+/* Style inputs */
+input[type=text], select {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+  
+  /* Style the submit button */
+button, input[type=reset] {
+  background-color: #4CAF50;
+  display: block;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=radio] {
+  display: inline;
+  background-color: black;
+}
+  
+input[type=submit]:hover, input[type=reset]:hover {
+  background-color: #45a049;
+}

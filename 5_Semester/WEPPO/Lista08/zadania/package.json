@@ -1,0 +1,11 @@
+{
+  "name": "lista-8",
+  "version": "1.0.0",
+  "description": "lista 8 z WEPPO",
+  "main": "2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}

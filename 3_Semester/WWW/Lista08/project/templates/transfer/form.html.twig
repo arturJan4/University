@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Transfer form{% endblock %}
+
+{% block stylesheets %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">    
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    <table cellpadding="4" cellspacing="1" border="0">
+        <tr><td>{{ form_label(form.KontoOd) }}</td><td>{{ form_widget(form.KontoOd, { 'attr': { 'class': 'txt', 'style': "width:300px;" } } ) }}</td></tr>
+        {% if form_errors(form.KontoOd) %}
+        <tr class="error"><td></td><td>{{ form_errors(form.KontoOd) }}</td></tr>
+        {% endif %}
+
+        <tr><td>{{ form_label(form.KontoDo) }}</td><td>{{ form_widget(form.KontoDo, { 'attr': { 'class': 'txt', 'style': "width:300px;" } } ) }}</td></tr>
+        {% if form_errors(form.KontoDo) %}
+        <tr class="error"><td></td><td>{{ form_errors(form.KontoDo) }}</td></tr>
+        {% endif %}
+
+        <tr><td>{{ form_label(form.ImieNazwisko) }}</td><td>{{ form_widget(form.ImieNazwisko, { 'attr': { 'class': 'txt', 'style': "width:300px;" } } ) }}</td></tr>
+        {% if form_errors(form.ImieNazwisko) %}
+        <tr class="error"><td></td><td>{{ form_errors(form.ImieNazwisko) }}</td></tr>
+        {% endif %}
+
+        <tr><td>{{ form_label(form.Ulica) }}</td><td>{{ form_widget(form.Ulica, { 'attr': { 'class': 'txt', 'style': "width:300px;" } } ) }}</td></tr>
+        {% if form_errors(form.Ulica) %}
+        <tr class="error"><td></td><td>{{ form_errors(form.Ulica) }}</td></tr>
+        {% endif %}
+
+        <tr><td>{{ form_label(form.Miejscowosc) }}</td><td>{{ form_widget(form.Miejscowosc, { 'attr': { 'class': 'txt', 'style': "width:300px;" } } ) }}</td></tr>
+        {% if form_errors(form.Miejscowosc) %}
+        <tr class="error"><td></td><td>{{ form_errors(form.Miejscowosc) }}</td></tr>
+        {% endif %}
+
+        <tr><td>{{ form_label(form.KodPocztowy) }}</td><td>{{ form_widget(form.KodPocztowy, { 'attr': { 'class': 'txt', 'style': "width:300px;" } } ) }}</td></tr>
+        {% if form_errors(form.KodPocztowy) %}
+        <tr class="error"><td></td><td>{{ form_errors(form.KodPocztowy) }}</td></tr>
+        {% endif %}
+
+        <tr><td>{{ form_label(form.Kwota) }}</td><td>{{ form_widget(form.Kwota, { 'attr': { 'class': 'txt', 'style': "width:300px;" } } ) }}</td></tr>
+        {% if form_errors(form.Kwota) %}
+        <tr class="error"><td></td><td>{{ form_errors(form.Kwota) }}</td></tr>
+        {% endif %}
+
+        <tr><td>{{ form_label(form.Tytulem) }}</td><td>{{ form_widget(form.Tytulem, { 'attr': { 'class': 'txt', 'style': "width:300px;" } } ) }}</td></tr>
+        {% if form_errors(form.Tytulem) %}
+        <tr class="error"><td></td><td>{{ form_errors(form.Tytulem) }}</td></tr>
+        {% endif %}
+
+        <tr><td>{{ form_label(form.DataWykonania) }}</td><td>{{ form_widget(form.DataWykonania, { 'attr': { 'class': 'txt', 'style': "width:300px;" } } ) }}</td></tr>
+        {% if form_errors(form.DataWykonania) %}
+        <tr class="error"><td></td><td>{{ form_errors(form.DataWykonania) }}</td></tr>
+        {% endif %}
+
+        
+    </table>
+{{ form_end(form) }}
+
+</div>
+{% endblock %}
