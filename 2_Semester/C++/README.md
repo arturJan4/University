@@ -1,0 +1,16 @@
+##  Selected course topics
+- instructions to C++
+- classes and objects
+- `static` keyword
+- l-value, r-value
+- operator overloading
+- inheritance
+- polymorphism
+- namespaces
+- exceptions
+- conversions
+- templates
+- streams
+- collections and iterators
+- algorithms
+- lambda and function objects
