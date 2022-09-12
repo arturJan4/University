@@ -1,0 +1,4 @@
+anowak:polska123:::Anomalia Nowak:/home/anowak:
+kko::::Katarzayna Kowalska:/home/kko:
+jann:qwerty:::Jan Niezbędny:/home/qwerty:/usr/bin/rbash
+motiond::::Motion Daemon:/home/motiond:/usr/bin/false
